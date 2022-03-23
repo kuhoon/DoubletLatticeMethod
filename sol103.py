@@ -97,7 +97,10 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
         'SPC = %s' % spc_id,
         'VECTOR(SORT1,REAL)=ALL',
         'SPCFORCES(SORT1, REAL) = ALL',
-        'BEGIN BULK'
+        'BEGIN BULK',
+        'FMETHOD = 1',
+        'AESYMXZ = Symmetric',
+        'AESYMXY = Asymmetric'
     ])
     model.case_control_deck = cc
     model.validate()
