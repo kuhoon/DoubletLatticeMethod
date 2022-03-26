@@ -73,7 +73,7 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
 
     # insert model.add_conm2(id_conm2, id_no, Mlump)
     for j, i, m in zip(conm2List, idList, mLump):
-        model.add_conm2(int(j), int(i), float(m))
+        model.add_conm2(int(j)+1000, int(i), float(m))
 
     # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
     for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
