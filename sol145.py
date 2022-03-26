@@ -13,9 +13,13 @@ def create145(model, sectionFileName, concFileName, nodesFileName, machFileName,
     v3ValueList = []
     bSpanList = []
     aelistList = []
-    # model = BDF()
+    model = BDF()
     ARfloat = 9.16
 
+    model.add_param('POST', 0)
+    model.add_param('SNORM', 20.0)
+    model.add_param('WTMASS', 1.0) #default = 1.0
+    model.add_param('PRTMAXIM', 'YES')
 
     # open sections.dat file_Wing
     with open(sectionFileName) as datFile:

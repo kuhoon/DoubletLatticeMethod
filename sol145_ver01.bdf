@@ -17,6 +17,11 @@ SUBCASE 1
     SPCFORCES(SORT1, REAL) = ALL
     SUBTITLE = Default
 BEGIN BULK
+$PARAMS
+PARAM       POST       0
+PARAM   PRTMAXIM     YES
+PARAM      SNORM     20.
+PARAM     WTMASS      1.
 $POINTS
 POINT        201              0.      0.      0.
 POINT        202           2360.      0.      0.
