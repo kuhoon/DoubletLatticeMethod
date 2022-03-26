@@ -48,6 +48,9 @@ def create145(model, sectionFileName, concFileName, nodesFileName, machFileName,
                          nCh, 0)
         eId2 += 1000
         bSpanList.append(bSpan)
+        # print(ptList[i])
+        # print(ptList[i+1])
+        # print(float(cList[i+1]))
     # 여기서 하고싶은것. 섹션 아이디는 n개이고, 여기서 생성되는 면은 n-1개이므로 섹션아이디-1 = n-1개로 표현
     # ptList는 [ [], [], [] ]형태이므로, float 불가. cList는 리스트-플롯 바로적용
 
@@ -104,7 +107,7 @@ def create145(model, sectionFileName, concFileName, nodesFileName, machFileName,
     model.add_flfact(2, [float(0.0)])
     model.add_flfact(3, v3ValueList)
 
-    model.add_flutter(1, 'PK', 1, 2, 3, 'S', None, None, float(1E-3))
+    model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
 
     model.sol = 145
 

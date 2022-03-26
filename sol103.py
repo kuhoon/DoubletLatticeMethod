@@ -22,6 +22,7 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
     jList = []
     idFromList = []
     idToList = []
+    # model = BDF()
 
     # open node.dat file_Wing //////////////////////////////
     with open(nodesFileName) as datFile:

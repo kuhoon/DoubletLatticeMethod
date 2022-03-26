@@ -2,7 +2,7 @@ import os
 
 from sol103 import *
 from sol145 import *
-from solMerged import *
+# from solMerged import *
 
 nodesFileName = "datFiles/nodes.dat" #둘다 가능
 lumpFileName = "datFiles/mass_lump.dat"
