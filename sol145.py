@@ -13,7 +13,7 @@ def create145(model, sectionFileName, concFileName, nodesFileName, machFileName,
     v3ValueList = []
     bSpanList = []
     aelistList = []
-    model = BDF()
+    # model = BDF()
     ARfloat = 9.16
 
     model.add_param('POST', 0)
