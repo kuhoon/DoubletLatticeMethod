@@ -1,4 +1,4 @@
-from pyNastran.bdf.bdf import BDF, CaseControlDeck
+from pyNastran.bdf.bdf import CaseControlDeck
 
 
 def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName):
@@ -7,7 +7,7 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
     G = 27000.0
     nu = 0.32
     rho = 0.0000000000000001
-    mat = model.add_mat1(1, E, G, nu, rho)
+    model.add_mat1(1, E, G, nu, rho)
 
     idList = []  # 변수 선언. 첫줄에서 시작
     xValueList = []
@@ -24,7 +24,10 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
     idToList = []
     # model = BDF()
 
-    # open node.dat file_Wing //////////////////////////////
+    model.add_param('POST', 0)
+    model.add_param('PRTMAXIM', 'YES')
+
+    # open node.dat file_Wing
     with open(nodesFileName) as datFile:
         nodeValueList = [data.split() for data in datFile]
         del nodeValueList[0]  # 0번 행을 지워라
@@ -83,33 +86,35 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
     for p, idFrom, idTo in zip(pbeamList, idFromList, idToList):
         model.add_cbeam(int(p), int(p), [int(idFrom), int(idTo)], [], 100)
 
-    spc_id = 50
+    spc_id = 49
+    spcadd_id = spc_id + 1
     model.add_spc1(spc_id, '123456', [1])
+    model.add_spcadd(spcadd_id, spc_id)
 
     model.add_rbe2(51, 8, '123456', [100])
     model.add_rbe2(52, 8, '123456', [101])
 
-    eigrl = model.add_eigrl(1, nd=10)  # how many want to mode
+    model.add_eigrl(1, nd=10, msglvl=0)  # how many want to mode
+
     model.sol = 103  # start=103
     cc = CaseControlDeck([
         'SUBCASE 1',
         'SUBTITLE = Default',
-        'METHOD = 10',
-        'SPC = %s' % spc_id,
+        'METHOD = 1',
+        'SPC = %s' % spcadd_id,
         'VECTOR(SORT1,REAL)=ALL',
         'SPCFORCES(SORT1, REAL) = ALL',
         'BEGIN BULK',
-        'FMETHOD = 1',
-        'AESYMXZ = Symmetric',
-        'AESYMXY = Asymmetric'
+        'ANALYSIS = FLUTTER'
+        # 'RESVEC = Default'
+        # 'FMETHOD = 1',
+        # 'AESYMXZ = Symmetric',
+        # 'AESYMXY = Asymmetric',
+
     ])
     model.case_control_deck = cc
     model.validate()
 
-    # bdf_filename_out = os.path.join('sol103_OUT3.bdf')
-    # model.write_bdf(bdf_filename_out, enddata=True)
-    # print(bdf_filename_out)
-    #
-    # print('----------------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------------')
 
     return

@@ -8,16 +8,15 @@ SOL 145
 CEND
 $CASE CONTROL DECK
 SUBCASE 1
-    AESYMXY = ASYMMETRIC
-    AESYMXZ = SYMMETRIC
+    ANALYSIS = FLUTTER
     DISPLACEMENT(SORT1,REAL) = ALL
-    FMETHOD = 1
-    METHOD = 10
+    METHOD = 1
     SPC = 50
     SPCFORCES(SORT1, REAL) = ALL
     SUBTITLE = Default
 BEGIN BULK
 $PARAMS
+PARAM      Aunit      1.
 PARAM       POST       0
 PARAM   PRTMAXIM     YES
 PARAM      SNORM     20.
@@ -305,7 +304,8 @@ MKAERO2       .6 51.4412
 MKAERO2       .655.69865
 MKAERO2       .6 59.9561
 $SPCs
-SPC1          50  123456       1
+SPCADD        50      49
+SPC1          49  123456       1
 $SETS
 SET1           1       1       2       3       4       5       6       7
                8       9      10      11      12      13      14      15

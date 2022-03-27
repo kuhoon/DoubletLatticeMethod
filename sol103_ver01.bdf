@@ -8,15 +8,16 @@ SOL 103
 CEND
 $CASE CONTROL DECK
 SUBCASE 1
-    AESYMXY = ASYMMETRIC
-    AESYMXZ = SYMMETRIC
+    ANALYSIS = FLUTTER
     DISPLACEMENT(SORT1,REAL) = ALL
-    FMETHOD = 1
-    METHOD = 10
+    METHOD = 1
     SPC = 50
     SPCFORCES(SORT1, REAL) = ALL
     SUBTITLE = Default
 BEGIN BULK
+$PARAMS
+PARAM       POST       0
+PARAM   PRTMAXIM     YES
 $NODES
 GRID           1         1299.18      0.      0.
 GRID           2         1299.18416.4695      0.
@@ -131,5 +132,6 @@ RBE2          52       8  123456     101
 $DYNAMIC
 EIGRL          1                      10
 $SPCs
-SPC1          50  123456       1
+SPCADD        50      49
+SPC1          49  123456       1
 ENDDATA
