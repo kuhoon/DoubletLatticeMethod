@@ -11,7 +11,7 @@ SUBCASE 1
     ANALYSIS = FLUTTER
     DISPLACEMENT(SORT1,REAL) = ALL
     METHOD = 1
-    SPC = 50
+    SPC = 2
     SPCFORCES(SORT1, REAL) = ALL
     SUBTITLE = Default
 BEGIN BULK
@@ -132,6 +132,6 @@ RBE2          52       8  123456     101
 $DYNAMIC
 EIGRL          1                      10
 $SPCs
-SPCADD        50      49
-SPC1          49  123456       1
+SPCADD         2      50
+SPC1          50  123456       1
 ENDDATA

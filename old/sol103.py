@@ -1,5 +1,5 @@
 from pyNastran.bdf.bdf import CaseControlDeck
-
+from pyNastran.bdf.cards.constraints import *
 
 def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName):
 
@@ -91,6 +91,8 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
     model.add_spc1(spc_id, '123456', [1])
     model.add_spcadd(spcadd_id, spc_id)
 
+    spc = SPC1(50, '123456', 1)
+
     model.add_rbe2(51, 8, '123456', [100])
     model.add_rbe2(52, 8, '123456', [101])
 
@@ -101,7 +103,7 @@ def create103(model, nodesFileName, lumpFileName, concFileName, elementsFileName
         'SUBCASE 1',
         'SUBTITLE = Default',
         'METHOD = 1',
-        'SPC = %s' % spcadd_id,
+        'SPC = 50',
         'VECTOR(SORT1,REAL)=ALL',
         'SPCFORCES(SORT1, REAL) = ALL',
         'BEGIN BULK',

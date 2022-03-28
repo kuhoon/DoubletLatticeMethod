@@ -1,6 +1,5 @@
 from pyNastran.bdf.bdf import BDF, CaseControlDeck
 
-
 def create145(model, sectionFileName, concFileName, nodesFileName, machFileName, rrfFileName, v3FileName):
     idSectList = []
     xLeList = []
@@ -14,12 +13,11 @@ def create145(model, sectionFileName, concFileName, nodesFileName, machFileName,
     bSpanList = []
     aelistList = []
     # model = BDF()
-    ARfloat = 9.16
+    # ARfloat = 9.16
 
 
     model.add_param('SNORM', 20.0)
     model.add_param('WTMASS', 1.0) #default = 1.0
-
     model.add_param('Aunit', 1.0)
 
     # open sections.dat file_Wing

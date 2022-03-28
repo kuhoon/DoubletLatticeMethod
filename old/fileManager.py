@@ -2,6 +2,7 @@ import os
 
 from sol103 import *
 from sol145 import *
+from pyNastran.bdf.bdf import *
 # from solMerged import *
 
 nodesFileName = "datFiles/nodes.dat" #둘다 가능
@@ -17,7 +18,7 @@ v3FileName = "datfiles/v3.dat"
 model103 = BDF()
 create103(model103, nodesFileName, lumpFileName, concFileName, elementsFileName) #sol103 파일 만들기
 
-bdf103_filename_out = os.path.join('sol103_ver01.bdf')
+bdf103_filename_out = os.path.join('../../sol103_ver01.bdf')
 model103.write_bdf(bdf103_filename_out, enddata=True)
 print(bdf103_filename_out)
 
