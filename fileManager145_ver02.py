@@ -136,8 +136,8 @@ spc_id = 50
 cc = CaseControlDeck([
     'SUBCASE 1',
     'SUBTITLE = Default',
-    'METHOD = 10',
-    'SPC = %s' % spc_id,
+    'METHOD = 10', # MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION
+    'SPC = %s' % spc_id, # WING ROOT DEFLECTIONS AND PLATE IN-PLANE ROTATIONS FIXED
     'VECTOR(SORT1,REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
@@ -209,9 +209,14 @@ for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
 model.add_set1(1, idList)
 
 model.add_aero(float(1.0), float(1984.0), float(1.228E-12), 0)  # velocity, aerodynamic chord, density scal, coord
-model.add_aeros(float(1984.0), float(17174.0), float(3.227E7/2.0), 0, 0)  # half span model => half area
+model.add_aeros(float(1984.0), float(17174.0), float(3.227E7), 0, 0)  # half span model => half area
 
 # insert model.add_mkaero2
+# for m in machValueList:
+#     tempMachMesh = [float(m)]
+#     for i in range(len(rrfValueList)-1):
+#         tempMachMesh.append(None)
+#     model.add_mkaero2(tempMachMesh, rrfValueList)
 for m in machValueList:
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
@@ -226,8 +231,8 @@ for i in range(len(bSpanList)):
         aelistList.append(eId2 + b)
     eId2 += 1000
 
-model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
 
+model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
 # manage flfact
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13
@@ -235,12 +240,14 @@ model.add_flfact(1, [float(cruiseAD/seaAD)])
 model.add_flfact(2, [float(0.0)])
 model.add_flfact(3, v3ValueList)
 
+
+
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
 
 # write bdf file
 model.validate()
-bdf145_filename_out = os.path.join('old/sol145_ver06.bdf')
+bdf145_filename_out = os.path.join('sol145_ver06.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")

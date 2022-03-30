@@ -103,7 +103,7 @@ cc = CaseControlDeck([
 model.case_control_deck = cc
 model.validate()
 
-bdf_filename_out = os.path.join('old/sol103_ver04.bdf')
+bdf_filename_out = os.path.join('sol103_ver04.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 
