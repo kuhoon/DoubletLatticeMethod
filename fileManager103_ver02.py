@@ -73,7 +73,7 @@ for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
 
 # insert model.add_conm2(id_conm2, id_no, Mlump)
 for j, i, m in zip(conm2List, idList, mLump):
-    model.add_conm2(int(j), int(i), float(m))
+    model.add_conm2(int(j)+10000, int(i), float(m))
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
@@ -89,7 +89,7 @@ model.add_spc1(spc_id, '123456', [1])
 model.add_rbe2(51, 8, '123456', [100])
 model.add_rbe2(52, 8, '123456', [101])
 
-eigrl = model.add_eigrl(10, nd=10) # how many want to mode
+eigrl = model.add_eigrl(10, None, None, 10, 0, None, None, 'MASS', None, None) # how many want to mode
 model.sol = 103  # start=103
 cc = CaseControlDeck([
     'SUBCASE 1',
@@ -102,6 +102,9 @@ cc = CaseControlDeck([
 ])
 model.case_control_deck = cc
 model.validate()
+
+model.add_param('POST', [0])
+model.add_param('PRTMAXIM', ['YES'])
 
 bdf_filename_out = os.path.join('sol103_ver04.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)

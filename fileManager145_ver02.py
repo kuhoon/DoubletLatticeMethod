@@ -164,7 +164,7 @@ for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
 
 # insert model.add_conm2(id_conm2, id_no, Mlump)
 for j, i, m in zip(conm2List, idList, mLump):
-    model.add_conm2(int(j), int(i), float(m))
+    model.add_conm2(int(j)+10000, int(i), float(m))
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
@@ -176,6 +176,7 @@ for p, idFrom, idTo in zip(pbeamList, idFromList, idToList):
 
 # insert model.add_spc1, spcadd
 model.add_spc1(spc_id, '123456', [1])
+model.add_spcadd(1, spc_id)
 
 # insert model.add_rbe2
 model.add_rbe2(51, 8, '123456', [100])
@@ -183,7 +184,7 @@ model.add_rbe2(52, 8, '123456', [101])
 
 # insert model.add_eigrl
 eigrl = model.add_eigrl(10, nd=10) # how many want to mode
-model.add_eigrl(int(1), '', '', 10, 0)  # how many want to mode
+# model.add_eigrl(int(1), '', '', 10, 0)  # how many want to mode
 
 # <=========== sol 145 ===============>
 # insert model.add_point(id_no, x, y, z)
@@ -209,7 +210,7 @@ for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
 model.add_set1(1, idList)
 
 model.add_aero(float(1.0), float(1984.0), float(1.228E-12), 0)  # velocity, aerodynamic chord, density scal, coord
-model.add_aeros(float(1984.0), float(17174.0), float(3.227E7), 0, 0)  # half span model => half area
+model.add_aeros(float(1984.0), float(17174.0), float(3.227E7 / 2), 0, 0)  # half span model => half area
 
 # insert model.add_mkaero2
 # for m in machValueList:
