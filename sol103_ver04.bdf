@@ -129,7 +129,7 @@ $RIGID ELEMENTS
 RBE2          51       8  123456     100
 RBE2          52       8  123456     101
 $DYNAMIC
-EIGRL         10                      10                            MASS
+EIGRL         10                      10
 $SPCs
 SPC1          50  123456       1
 ENDDATA

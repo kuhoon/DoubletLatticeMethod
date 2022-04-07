@@ -183,7 +183,7 @@ model.add_rbe2(51, 8, '123456', [100])
 model.add_rbe2(52, 8, '123456', [101])
 
 # insert model.add_eigrl
-eigrl = model.add_eigrl(10, nd=10) # how many want to mode
+eigrl = model.add_eigrl(10, nd=10, msglvl=0) # how many want to mode
 # model.add_eigrl(int(1), '', '', 10, 0)  # how many want to mode
 
 # <=========== sol 145 ===============>
