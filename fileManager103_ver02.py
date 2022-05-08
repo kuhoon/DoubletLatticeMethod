@@ -108,7 +108,7 @@ model.validate()
 model.add_param('POST', [0])
 model.add_param('PRTMAXIM', ['YES'])
 
-bdf_filename_out = os.path.join('sol103_ver04.bdf')
+bdf_filename_out = os.path.join('sol103_caero1.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 

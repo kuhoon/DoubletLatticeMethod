@@ -248,7 +248,7 @@ model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
 
 # write bdf file
 model.validate()
-bdf145_filename_out = os.path.join('sol145_ver06.bdf')
+bdf145_filename_out = os.path.join('sol145_caero1.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
