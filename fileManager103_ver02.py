@@ -6,8 +6,8 @@ model = BDF()
 E = 72397.5
 G = 27000.0
 nu = 0.32
-rho = 0.0000000000000001
-mat = model.add_mat1(1, E, G, nu, rho)
+# rho = 0.0000000000000001
+mat = model.add_mat1(1, E, G, nu)
 
 idList = []  # declare a variable. start on the first line
 xValueList = []
@@ -119,9 +119,9 @@ elif nn == 2:
                         0.0, 0.0, float(s), 0.0, float(iyy),
                         0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
 
-# insert model.add_conm2(id_conm2, id_no, Mlump)
-for j, m in zip(conm2List, mLump):
-    model.add_conm2(int(j) + 10000, int(j), float(m))
+# # insert model.add_conm2(id_conm2, id_no, Mlump)
+# for j, m in zip(conm2List, mLump):
+#     model.add_conm2(int(j) + 10000, int(j), float(m))
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
@@ -141,17 +141,17 @@ for i in range(1, 27):
     model.add_rbe2(177 + i, i, '123456', [26 + 2 * i])
 
 # eigrl = model.add_eigrl(10, None, None, 10, 0, None, None, 'MASS', None, None) # how many want to mode
-eigrl = model.add_eigrl(10, nd=10, msglvl=0)
+eigrl = model.add_eigrl(5, nd=12, norm='MAX')
 model.sol = 103  # start=103
 cc = CaseControlDeck([
     'SUBCASE 1',
     'SUBTITLE = Default',
-    'METHOD = 10',  # number of nd
+    'METHOD = 5',  # number of nd
     'SPC = %s' % spc_id,
     'VECTOR(SORT1,PUNCH, REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
-    'SET 99 = 1,THRU, 10',  # which mode do you want to print
+    # 'SET 99 = 1,THRU, 10',  # which mode do you want to print
     'MEFFMASS(ALL) = YES'
 ])
 model.case_control_deck = cc
@@ -162,7 +162,7 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL'])  # Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
 
-bdf_filename_out = os.path.join('sol103_addstrip_test.bdf')
+bdf_filename_out = os.path.join('sol103_addDLM_%n_%nn.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 print("====> write sol103.bdf file success!")
