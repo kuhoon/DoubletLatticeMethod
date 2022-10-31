@@ -2,22 +2,19 @@ import os
 from pyNastran.bdf.bdf import *
 import numpy as np
 
-nodesFileName = "datFiles_numbering/1_nodes.dat"
-lumpFileName = "datFiles_numbering/2_mass_lump.dat"
-concFileName = "datFiles_numbering/3_mass_conc.dat"
-elementsFileName = "datFiles_numbering/4_elements.dat"
-sectionFileName = "datFiles_numbering/5_sections.dat"
-machFileName = "datFiles_numbering/6_machNum.dat"
-rrfFileName = "datFiles_numbering/7_redRF.dat"
-v3FileName = "datfiles_numbering/8_v3.dat"
+nodesFileName = "Ref_220425/data_nodes.dat"
+elementsFileName = "Ref_220425/data_elements.dat"
+sectionFileName = "Ref_220425/data_planform.dat"
+machFileName = "datFiles/6_machNum.dat"
+rrfFileName = "datFiles/7_redRF.dat"
+v3FileName = "datfiles/8_v3.dat"
 
 model = BDF()
 
-idList = [] #변수 선언. 첫줄에서 시작
+idList = []
 xValueList = []
 yValueList = []
 zValueList = []
-conm2List = []
 mLump = []
 pbeamList = []
 areaList = []
@@ -51,48 +48,65 @@ mat = model.add_mat1(1, E, G, nu, rho)
 # =========================== OPEN FILES =============================
 # ====================================================================
 
-# open 1_node.dat file_Wing
-with open("datFiles_numbering/1_nodes.dat") as datFile:
+n = int(input("Bitte gebe eine Beladungszustände mit 25, 50 und 100% ein : "))
+if n == 25 :
+    with open("Ref_220425/masses_f025/data_masses.dat") as datFile:
+        lumpValueList = [data.split() for data in datFile]
+        del lumpValueList[0]
+        for v in lumpValueList:
+            conm1List.append(v[0])  # conm1list 1-100
+            mass.append(v[2])
+            iYy.append(v[3])
+            firstMoment.append(v[4])
+elif n == 50 :
+    with open("Ref_220425/masses_f050/data_masses.dat") as datFile:
+        lumpValueList = [data.split() for data in datFile]
+        del lumpValueList[0]
+        for v in lumpValueList:
+            conm1List.append(v[0])  # conm1list 1-100
+            mass.append(v[2])
+            iYy.append(v[3])
+            firstMoment.append(v[4])
+elif n == 100 :
+    with open("Ref_220425/masses_f100/data_masses.dat") as datFile:
+        lumpValueList = [data.split() for data in datFile]
+        del lumpValueList[0]
+        for v in lumpValueList:
+            conm1List.append(v[0])  # conm1list 1-100
+            mass.append(v[2])
+            iYy.append(v[3])
+            firstMoment.append(v[4])
+
+# open node.dat file_Wing
+with open("Ref_220425/data_nodes.dat") as datFile:
     nodeValueList = [data.split() for data in datFile]
-    del nodeValueList[0] # 0번 행을 지워라
+    del nodeValueList[0] # delete line 0
     for v in nodeValueList:
-        idList.append(v[0]) # list 원소 추가
+        idList.append(v[0]) # add list element
         xValueList.append(v[1])
         yValueList.append(v[2])
         zValueList.append(v[3])
 
-# open 2_mass_lump.dat file_Wing
-with open("datFiles_numbering/2_mass_lump.dat") as datFile:
-    lumpValueList = [data.split() for data in datFile]
-    del lumpValueList[0]
-    for v in lumpValueList:
-        conm2List.append(v[0]) #conm2list 1-100
+# open mass_lump.dat file_Wing
+with open("Ref_220425/data_lump_mass.dat") as datFile:
+    lumpValueList1 = [data.split() for data in datFile]
+    del lumpValueList1[0]
+    for v in lumpValueList1:
+        conm2List.append(v[0])
         mLump.append(v[2])
 
-# open 3_mass_conc.dat file_Main Engine, Landing Gear
-with open("datFiles_numbering/3_mass_conc.dat") as datFile:
-    massValueList = [data.split() for data in datFile]
-    del massValueList[0]
-    for v in massValueList:
-        idList.append(v[0])
-        xValueList.append(v[2])
-        yValueList.append(v[3])
-        zValueList.append(v[4])
-        conm2List.append(v[1]) #conm2list 100, 101 리스트 순서상 100번 101번이 뒤로 와야함.
-        mLump.append(v[5])
-
-# open 4_elements.dat file_pbeam
-with open("datFiles_numbering/4_elements.dat") as datFile:
+# open elements.dat file_pbeam
+with open("Ref_220425/data_elements.dat") as datFile:
     elementValueList = [data.split() for data in datFile]
     del elementValueList[0]
     for v in elementValueList:
         pbeamList.append(v[0])
+        idFromList.append(v[1])
+        idToList.append(v[2])
         areaList.append(v[3])
         i1List.append(v[4])
         i2List.append(v[5])
         jList.append(v[7])
-        idFromList.append(v[1])
-        idToList.append(v[2])
 
 # <================ special for sol145 ===================>
 # open 5_sections.dat file_Wing
@@ -161,10 +175,6 @@ model.add_param('Aunit', [1.0])
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
     model.add_grid(int(i), [float(x), float(y), float(z)])
-
-# insert model.add_conm2(id_conm2, id_no, Mlump)
-for j, i, m in zip(conm2List, idList, mLump):
-    model.add_conm2(int(j)+10000, int(i), float(m))
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
