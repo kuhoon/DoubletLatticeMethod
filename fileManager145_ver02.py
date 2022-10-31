@@ -11,11 +11,14 @@ v3FileName = "datfiles/8_v3.dat"
 
 model = BDF()
 
-idList = []
+idList = [] #declare a variable. start on the first line
 xValueList = []
 yValueList = []
 zValueList = []
-mLump = []
+conm1List = []
+mass = []
+iYy = []
+firstMoment = []
 pbeamList = []
 areaList = []
 i1List = []
@@ -86,14 +89,6 @@ with open("Ref_220425/data_nodes.dat") as datFile:
         xValueList.append(v[1])
         yValueList.append(v[2])
         zValueList.append(v[3])
-
-# open mass_lump.dat file_Wing
-with open("Ref_220425/data_lump_mass.dat") as datFile:
-    lumpValueList1 = [data.split() for data in datFile]
-    del lumpValueList1[0]
-    for v in lumpValueList1:
-        conm2List.append(v[0])
-        mLump.append(v[2])
 
 # open elements.dat file_pbeam
 with open("Ref_220425/data_elements.dat") as datFile:
@@ -178,23 +173,18 @@ for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
-    model.add_pbeam(int(p), 1, [0.0], ['YES'], [float(a)], [float(i1)], [float(i2)], [0], [float(j)])
+    model.add_pbeam(int(p), 1, [0.0], ['YES'], [float(a)], [float(i1)], [float(i2)], [0], [float(j)], k1=1., k2=1.)
 
 # insert model.add_cbeam
 for p, idFrom, idTo in zip(pbeamList, idFromList, idToList):
-    model.add_cbeam(int(p), int(p), [int(idFrom), int(idTo)], [], 100)
+    model.add_cbeam(int(p), int(p), [int(idFrom), int(idTo)], [0., 0., 1.], None)
 
 # insert model.add_spc1, spcadd
 model.add_spc1(spc_id, '123456', [1])
 model.add_spcadd(1, spc_id)
 
-# insert model.add_rbe2
-model.add_rbe2(51, 8, '123456', [100])
-model.add_rbe2(52, 8, '123456', [101])
-
 # insert model.add_eigrl
-eigrl = model.add_eigrl(10, nd=10, msglvl=0) # how many want to mode
-# model.add_eigrl(int(1), '', '', 10, 0)  # how many want to mode
+eigrl = model.add_eigrl(5, nd=12, norm='MAX') # how many want to mode
 
 # <=========== sol 145 ===============>
 # insert model.add_point(id_no, x, y, z)
