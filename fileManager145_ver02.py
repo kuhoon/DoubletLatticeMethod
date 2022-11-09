@@ -231,8 +231,8 @@ for m in machValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline7
-# model.add_spline7(1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0)
-print_card((['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0]))
+# model.add_spline7(1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0) # but there is no SPLINE7 support by Steven Doyle
+BDF.print_card(['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0])
 
 
 # manage aelist
@@ -241,7 +241,7 @@ for i in range(len(bSpanList)):
     for b in range(bSpanList[i] * 6):
         aelistList.append(eId2 + b)
     eId2 += 1000
-model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
+model.add_aelist(1, aelistList)  # mesh 33x6=
 
 # manage flfact
 seaAD = 1.225E-12
