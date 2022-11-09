@@ -1,13 +1,15 @@
 import os
 from pyNastran.bdf.bdf import *
 import numpy as np
+from math import pi
+from pyNastran.bdf.field_writer import print_card
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
-machFileName = "datFiles/6_machNum.dat"
-rrfFileName = "datFiles/7_redRF.dat"
-v3FileName = "datfiles/8_v3.dat"
+machFileName = "datFiles_numbering/6_machNum.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
+rrfFileName = "datFiles_numbering/7_redRF.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
+v3FileName = "datfiles_numbering/8_v3.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
 
 model = BDF()
 
@@ -38,10 +40,10 @@ rrfValueList = []
 v3ValueList = []
 bSpanList = []
 aelistList = []
-eId = 201
+eId = 201 #point for caero1
 ptList = []  # [ [], [], [] ]
 
-E = 72397.0
+E = 72397.5
 G = 27000.0
 nu = 0.32
 rho = 0.0000000000000001
@@ -195,60 +197,65 @@ for x, y, z, c in zip(xLeList, yLeList, zLeList, cList):
     model.add_point(eId, [float(x) + float(c), float(y), float(z)])
     eId = eId + 1
 
+# insert model.add_aefact for caero1
+y = np.arange(0,1.25,0.25) # same
+
+x1 = np.linspace(0, pi/2, 13) # wide narrow
+y1= np.sin(x1)
+
+x2 = np.linspace(-pi/2, pi/2, 33) # narrow wide narrow
+y2 = (np.sin(x2)+1)/2
+
+bSpanList = [len(y)-1, len(y1)-1, len(y2)-1] # [4, 12, 32]
+
+model.add_aefact(1, y)
+model.add_aefact(2,y1)
+model.add_aefact(3, y2)
+
 # insert model.add_paero1, caero1
 eId2 = 103001
-nCh = 5  # 나스트란 기본설정. chord 박스 5개
-b1Span = float(yLeList[1]) - float(yLeList[0])  # span 길이를 균일하게 하기위한.
+nCh = 6 #nchord
 for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
-    bSpan = round((float(yLeList[i + 1]) - float(yLeList[i])) * nCh / b1Span)  # round 반올림
     model.add_paero1(eId2)
-    model.add_caero1(eId2, eId2, 1, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, bSpan, 0, nCh, 0)
+    model.add_caero1(eId2, eId2, 1, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, i+1, nCh, 0)
     eId2 += 1000
-    bSpanList.append(bSpan)
 
-# insert model.add_set1, aero, aeros
+# # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
-
-model.add_aero(float(1.0), float(1984.0), float(1.228E-12), 0)  # velocity, aerodynamic chord, density scal, coord
-model.add_aeros(float(1984.0), float(17174.0), float(3.227E7 / 2), 0, 0)  # half span model => half area
+model.add_aero(float(1.0), float(2100.0), float(1.225E-12), 0)  # velocity, mean_aerodynamic_chord, air_density,
+model.add_aeros(float(2100.0), float(17760.0), float(3.442E7 / 2), 0, 0)  # mean_aerodynamic_chord, reference_surface, half span model => half area
 
 # insert model.add_mkaero2
-# for m in machValueList:
-#     tempMachMesh = [float(m)]
-#     for i in range(len(rrfValueList)-1):
-#         tempMachMesh.append(None)
-#     model.add_mkaero2(tempMachMesh, rrfValueList)
 for m in machValueList:
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
-# insert model.add_spline4
-model.add_spline4(int(1), int(105001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10))
+# insert model.add_spline7
+# model.add_spline7(1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0)
+print_card((['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0]))
+
 
 # manage aelist
 eId2 = eId2 - (1000 * len(bSpanList))
 for i in range(len(bSpanList)):
-    for b in range(bSpanList[i] * 5):
+    for b in range(bSpanList[i] * 6):
         aelistList.append(eId2 + b)
     eId2 += 1000
-
-
 model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
+
 # manage flfact
 seaAD = 1.225E-12
-cruiseAD = 8.170E-13
+cruiseAD = 8.170E-13 #cruise_level_air_density
 model.add_flfact(1, [float(cruiseAD/seaAD)])
 model.add_flfact(2, [float(0.0)])
 model.add_flfact(3, v3ValueList)
 
-
-
 # insert model.add_flutter
-model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
+model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation 'L'inear
 
 # write bdf file
 model.validate()
-bdf145_filename_out = os.path.join('sol145_caero1.bdf')
+bdf145_filename_out = os.path.join('sol145_addDLM.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")

@@ -150,6 +150,9 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
 
+if x== 10 :
+    print(split )
+
 bdf_filename_out = os.path.join('sol103_addDLM_test.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
