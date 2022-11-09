@@ -232,7 +232,7 @@ for m in machValueList:
 
 # insert model.add_spline7
 # model.add_spline7(1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0) # but there is no SPLINE7 support by Steven Doyle
-BDF.print_card(['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0])
+print_card(['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0], size=8, is_double=False)
 
 
 # manage aelist
