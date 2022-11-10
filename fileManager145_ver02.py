@@ -3,6 +3,7 @@ from pyNastran.bdf.bdf import *
 import numpy as np
 from math import pi
 from pyNastran.bdf.field_writer import print_card
+# from pyNastran.bdf.bdf_interface.verify_validate import print_card
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
@@ -147,7 +148,7 @@ spc_id = 50
 cc = CaseControlDeck([
     'SUBCASE 1',
     'SUBTITLE = Default',
-    'METHOD = 10', # MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION
+    'METHOD = 5', # MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION
     'SPC = %s' % spc_id, # WING ROOT DEFLECTIONS AND PLATE IN-PLANE ROTATIONS FIXED
     'VECTOR(SORT1,REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
@@ -163,7 +164,7 @@ model.validate()
 
 # model.add_mat1(1, E, G, nu, rho)
 
-model.add_param('POST', [0])
+model.add_param('POST', [-1])
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0
@@ -172,6 +173,29 @@ model.add_param('Aunit', [1.0])
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
     model.add_grid(int(i), [float(x), float(y), float(z)])
+
+# insert model.add_conm1(id_conm1, id_no, Mlump)
+nn = int(input("Bitte geben Sie 1 für ungekoppelt, 2 für gekoppelt ein : "))
+
+if nn == 1 :
+    for j, i, m, s, iyy in zip(conm1List, idList, mass, firstMoment, iYy):
+        model.add_card(['CONM1', int(j) + 10000, int(i), 0,
+                        float(m),
+                        0.0, float(m),
+                        0.0, 0.0, float(m),
+                        0.0, 0.0, 0.0, 0.0,
+                        0.0, 0.0, 0.0, 0.0, float(iyy),
+                        0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
+elif nn == 2 :
+    for j, i, m, s, iyy in zip(conm1List, idList, mass, firstMoment, iYy):
+        model.add_card(['CONM1', int(j) + 10000, int(i), 0,
+                        float(m),
+                        0.0, float(m),
+                        0.0, 0.0, float(m),
+                        0.0, 0.0, 0.0, 0.0,
+                        0.0, 0.0, float(s), 0.0, float(iyy),
+                        0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
+
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
@@ -182,7 +206,7 @@ for p, idFrom, idTo in zip(pbeamList, idFromList, idToList):
     model.add_cbeam(int(p), int(p), [int(idFrom), int(idTo)], [0., 0., 1.], None)
 
 # insert model.add_spc1, spcadd
-model.add_spc1(spc_id, '123456', [1])
+model.add_spc1(spc_id, '123456', [1, 2, 3])
 model.add_spcadd(1, spc_id)
 
 # insert model.add_eigrl
@@ -231,9 +255,7 @@ for m in machValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline7
-spline7 = ['spline7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, None,'FPS', 'FBS6', None, 1.0, None]
-print(print_card(spline7))
-print_card(spline7)
+model.add_card(['SPLINE7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, None, 'BOTH', 'FBS6', 1.0, 1.0, None], 'SPLINE7')
 
 # manage aelist
 eId2 = eId2 - (1000 * len(bSpanList))
@@ -259,3 +281,4 @@ bdf145_filename_out = os.path.join('sol145_addDLM.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
+
