@@ -80,7 +80,6 @@ with open("Ref_220425/data_elements.dat") as datFile:
         i2List.append(v[5])
         jList.append(v[7])
 
-
 # insert model.add_grid(id_no, x, y, z) for 1_nodes.dat
 for i, x, y, z, xl, xt in zip(idList, xValueList, yValueList, zValueList, xLeValueList, xTelueList):
     model.add_grid(int(i), [float(x), float(y), float(z)])
@@ -117,7 +116,6 @@ for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
 for p, idFrom, idTo in zip(pbeamList, idFromList, idToList):
     model.add_cbeam(int(p), int(p), [int(idFrom), int(idTo)], [0., 0., 1.], None)
 
-
 # insert model.add_spc1
 spc_id = 50
 model.add_spc1(spc_id, '123456', [1, 2, 3])
@@ -126,7 +124,6 @@ model.add_spc1(spc_id, '123456', [1, 2, 3])
 for i in range(1,27):
     model.add_rbe2(150+i, i, '123456', [25+2*i])
     model.add_rbe2(177+i, i, '123456', [26+2*i])
-
 
 # eigrl = model.add_eigrl(10, None, None, 10, 0, None, None, 'MASS', None, None) # how many want to mode
 eigrl = model.add_eigrl(5, nd=12, norm='MAX')
@@ -149,9 +146,6 @@ model.add_param('POST', [-1]) #print result. 0 = .xdb, -1 = .op2
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
-
-if x== 10 :
-    print(split )
 
 bdf_filename_out = os.path.join('sol103_addDLM_test.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
