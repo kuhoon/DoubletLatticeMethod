@@ -2,7 +2,7 @@ import os
 from pyNastran.bdf.bdf import *
 import numpy as np
 from math import pi
-from pyNastran.bdf.field_writer_8 import print_card_8
+from pyNastran.bdf.field_writer import print_card
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
@@ -232,8 +232,8 @@ for m in machValueList:
 
 # insert model.add_spline7
 spline7 = ['spline7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, None,'FPS', 'FBS6', None, 1.0, None]
-print(print_card_8(spline7))
-print_card_8(spline7)
+print(print_card(spline7))
+print_card(spline7)
 
 # manage aelist
 eId2 = eId2 - (1000 * len(bSpanList))
