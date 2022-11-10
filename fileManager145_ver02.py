@@ -2,8 +2,6 @@ import os
 from pyNastran.bdf.bdf import *
 import numpy as np
 from math import pi
-from pyNastran.bdf.field_writer import print_card
-# from pyNastran.bdf.bdf_interface.verify_validate import print_card
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
