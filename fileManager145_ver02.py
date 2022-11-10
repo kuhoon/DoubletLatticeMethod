@@ -2,7 +2,7 @@ import os
 from pyNastran.bdf.bdf import *
 import numpy as np
 from math import pi
-from pyNastran.bdf.field_writer import print_card
+from pyNastran.bdf.field_writer_8 import print_card_8
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
@@ -231,9 +231,9 @@ for m in machValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline7
-# model.add_spline7(1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0) # but there is no SPLINE7 support by Steven Doyle
-print_card(['spline7',1, 105001, 1, 1, 1.0, 1.0, 'FPS', 'FBS6', 1.0], size=8, is_double=False)
-
+spline7 = ['spline7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, None,'FPS', 'FBS6', None, 1.0, None]
+print_card_8(spline7)
+# print(print_card_8(spline7))
 
 # manage aelist
 eId2 = eId2 - (1000 * len(bSpanList))
