@@ -1,7 +1,7 @@
 import os
 from pyNastran.bdf.bdf import BDF, CaseControlDeck
-model = BDF()
 
+model = BDF()
 E = 72397.5
 G = 27000.0
 nu = 0.32
