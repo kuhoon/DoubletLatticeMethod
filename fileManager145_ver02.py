@@ -7,7 +7,7 @@ from pyNastran.bdf.field_writer import print_card
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
-machFileName = "datFiles_numbering/6_machNum.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
+machFileName = "datFiles_numbering/6_machNum.dat"
 rrfFileName = "datFiles_numbering/7_redRF.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
 v3FileName = "datfiles_numbering/8_v3.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
 
