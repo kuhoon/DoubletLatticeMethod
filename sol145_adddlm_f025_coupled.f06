@@ -159,7 +159,7 @@
   
     MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
   
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     1
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     1
                                                                                                                                     
 0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
 0                                                                                                                                   
@@ -174,7 +174,7 @@
      $PYNASTRAN: NNODES=26                                                           
      $PYNASTRAN: NELEMENTS=25                                                        
      $EXECUTIVE CONTROL DECK                                                         
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     2
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     2
                                                                                                                                     
 0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
 0                                                                                                                                   
@@ -182,7 +182,7 @@
                                                                                                                                     
      SOL 145                                                                                 
      CEND                                                                                    
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     3
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     3
                                                                                                                                     
 0                                                                                                                                   
 0                                        C A S E    C O N T R O L    E C H O                                                        
@@ -200,7 +200,7 @@
                  10          SPCFORCES(SORT1, REAL) = ALL                                                        
                  11          SUBTITLE = DEFAULT                                                                  
                  12      BEGIN BULK                                                                              
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     4
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     4
                                                                                                                                     
 0                                                                                                                                   
                                               I N P U T   B U L K   D A T A   E C H O                                               
@@ -208,11 +208,11 @@
                  COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
  *** USER INFORMATION MESSAGE 9991 (SDLWIF)
      Messages are being generated at include level 0.
-     File: c:/users/student_sla/desktop/k_kwon_aeroelastik/sol145_adddlm.bdf
+     File: c:/users/student_sla/desktop/k_kwon_aeroelastik/sol145_adddlm_f025_coupled.bdf
  *** USER WARNING MESSAGE 9994 (BULFUN)
      MAT1 with MID=1 near line 116
      User information:  Material has unreasonable or inconsistent values of E, G or NU.
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     5
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     5
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -263,7 +263,7 @@
                    43-        +       105176  105177  105178  105179  105180  105181  105182  105183  +
                    44-        +       105184  105185  105186  105187  105188  105189  105190  105191  +
                    45-        +       105192
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     6
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     6
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -314,7 +314,7 @@
                    88-        CONM1   10004   4               .0410583        .0410583                +
                    89-        +       .0410583                                                2.431942+
                    90-        +               5049.063
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     7
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     7
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -365,7 +365,7 @@
                   133-        CONM1   10019   19              .0148446        .0148446                +
                   134-        +       .0148446                                                .9719836+
                   135-        +               1321.614
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     8
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     8
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -416,7 +416,7 @@
                   178-        GRID    15              1195.3745039.1580.
                   179-        GRID    16              1170.8035404.9320.
                   180-        GRID    17              1151.3635770.7060.
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE     9
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE     9
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -467,7 +467,7 @@
                   223-        MKAERO2 .05     3.326662
                   224-        MKAERO2 .05     3.785806
                   225-        MKAERO2 .05     4.287895
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    10
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    10
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -518,7 +518,7 @@
                   268-        MKAERO2 .15     6.09391
                   269-        MKAERO2 .15     6.811881
                   270-        MKAERO2 .15     7.597005
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    11
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    11
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -569,7 +569,7 @@
                   313-        MKAERO2 .3      .425303
                   314-        MKAERO2 .3      .613075
                   315-        MKAERO2 .3      .818411
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    12
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    12
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -620,7 +620,7 @@
                   358-        MKAERO2 .4      1.557003
                   359-        MKAERO2 .4      1.850626
                   360-        MKAERO2 .4      2.171713
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    13
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    13
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -671,7 +671,7 @@
                   403-        MKAERO2 .5      3.326662
                   404-        MKAERO2 .5      3.785806
                   405-        MKAERO2 .5      4.287895
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    14
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    14
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -722,7 +722,7 @@
                   448-        POINT   205             83.595043223.1530.
                   449-        POINT   206             2426.1313223.1530.
                   450-        POINT   207             654.00628878.01 0.
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    15
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    15
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -740,7 +740,7 @@
                               ENDDATA
                         TOTAL COUNT= 460
                               INPUT BULK DATA ENTRY COUNT = 465
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    16
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    16
                                                                                                                                     
 0                                                                                                                                   
                                         M O D E L   S U M M A R Y          BULK = 0
@@ -792,7 +792,7 @@
      (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         627 WORDS.)
            (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
            (TOTAL DATA WRITTEN FOR DATA BLOCK =        1115 WORDS.)
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    17
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    17
                                                                                                                                     
 0                                                                                                                                   
 0                                                                                                                                   
@@ -838,7 +838,7 @@
      (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         443 WORDS.)
            (NUMBER OF FORTRAN RECORDS WRITTEN =          70 RECORDS.)
            (TOTAL DATA WRITTEN FOR DATA BLOCK =        1059 WORDS.)
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    18
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    18
                                                                                                                                     
 0                                                                                                                                   
  *** USER INFORMATION MESSAGE 7310 (VECPRN)
@@ -867,7 +867,7 @@
      1.        3.9445796E+03          9.9958676E+00                 2                       15
      2.        3.6738400E+05          9.6467328E+01                12                        0
 
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    19
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    19
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
 0
@@ -885,7 +885,7 @@
 
                                      NUMBER OF SOLVES REQUIRED ............     8
 
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    20
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    20
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
  
@@ -914,7 +914,7 @@
      QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
  *** USER INFORMATION MESSAGE 5458 (REIG)
      QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    21
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    21
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
  
@@ -940,7 +940,7 @@
        16        16        2.554670E+06        1.598334E+03        2.543827E+02        1.000000E+00        2.554670E+06
        17        17        2.720500E+06        1.649394E+03        2.625092E+02        1.000000E+00        2.720500E+06
        18        18        3.604681E+06        1.898600E+03        3.021715E+02        1.000000E+00        3.604681E+06
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    22
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    22
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -966,7 +966,7 @@
         0.0965       1.0366989E+01     2.6936500E+05    -9.1992601E-01     3.9383957E+00    -1.1382093E+01     2.4745670E+01
         0.0892       1.1214567E+01     2.8160900E+05    -1.0409807E+00     3.8062286E+00    -1.2447652E+01     2.3915240E+01
         0.0817       1.2233462E+01     2.9385300E+05    -1.1919108E+00     3.6409237E+00    -1.3633432E+01     2.2876598E+01
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    23
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    23
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -992,7 +992,7 @@
         0.2187       4.5716799E+00     2.6936500E+05     1.6886419E-14     8.9309196E+00     4.7378753E-13     5.6114623E+01
         0.2092       4.7794859E+00     2.8160900E+05     1.4047670E-14     8.9309196E+00     3.9413987E-13     5.6114623E+01
         0.2005       4.9872918E+00     2.9385300E+05     3.3343525E-16     8.9309196E+00     9.3552968E-15     5.6114623E+01
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    24
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    24
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1018,7 +1018,7 @@
         0.2754       3.6314630E+00     2.6936500E+05    -3.6046094E-02     1.1243211E+01    -1.2732054E+00     7.0643180E+01
         0.2628       3.8044732E+00     2.8160900E+05    -3.3589450E-02     1.1219741E+01    -1.1839561E+00     7.0495711E+01
         0.2513       3.9792501E+00     2.9385300E+05    -2.9988418E-02     1.1193341E+01    -1.0545403E+00     7.0329835E+01
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    25
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    25
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1044,7 +1044,7 @@
         0.3848       2.5990355E+00     2.6936500E+05    -7.5754200E-02     1.5709407E+01    -3.7386634E+00     9.8705112E+01
         0.3653       2.7376386E+00     2.8160900E+05    -8.2057659E-02     1.5591979E+01    -4.0194834E+00     9.7967294E+01
         0.3472       2.8801498E+00     2.9385300E+05    -8.8923027E-02     1.5464856E+01    -4.3202611E+00     9.7168556E+01
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    26
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    26
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1070,7 +1070,7 @@
         0.6494       1.5399127E+00     2.6936500E+05     1.9213366E-14     2.6514039E+01     1.6004025E-12     1.6659262E+02
         0.6212       1.6099095E+00     2.8160900E+05    -1.6908777E-15     2.6514039E+01    -1.4084387E-13     1.6659262E+02
         0.5953       1.6799063E+00     2.9385300E+05    -1.7994253E-14     2.6514039E+01    -1.4988549E-12     1.6659262E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    27
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    27
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1096,7 +1096,7 @@
         0.7881       1.2688712E+00     2.6936500E+05    -1.2247806E-01     3.2177660E+01    -1.2381197E+01     2.0217820E+02
         0.7484       1.3361846E+00     2.8160900E+05    -1.3325765E-01     3.1945590E+01    -1.3373742E+01     2.0072006E+02
         0.7114       1.4057037E+00     2.9385300E+05    -1.4405480E-01     3.1685982E+01    -1.4339856E+01     1.9908890E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    28
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    28
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1122,7 +1122,7 @@
         0.8709       1.1482355E+00     2.6936500E+05    -5.2466464E-02     3.5558304E+01    -5.8610133E+00     2.2341941E+02
         0.8306       1.2040175E+00     2.8160900E+05    -5.0786773E-02     3.5452311E+01    -5.6564642E+00     2.2275344E+02
         0.7937       1.2598638E+00     2.9385300E+05    -4.9087965E-02     3.5353902E+01    -5.4520804E+00     2.2213512E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    29
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    29
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1148,7 +1148,7 @@
         1.2537       7.9762479E-01     2.6936500E+05    -6.1362890E-14     5.1188612E+01    -9.8679976E-12     3.2162754E+02
         1.1992       8.3388086E-01     2.8160900E+05    -1.7954047E-14     5.1188612E+01    -2.8872580E-12     3.2162754E+02
         1.1492       8.7013694E-01     2.9385300E+05     3.2804533E-14     5.1188612E+01     5.2754205E-12     3.2162754E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    30
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    30
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1174,7 +1174,7 @@
         1.4444       6.9234169E-01     2.6936500E+05    -1.9678971E-02     5.8972768E+01    -3.6458917E+00     3.7053683E+02
         1.3811       7.2408426E-01     2.8160900E+05    -2.0780036E-02     5.8950603E+01    -3.8484373E+00     3.7039757E+02
         1.3230       7.5586136E-01     2.9385300E+05    -2.1901466E-02     5.8927609E+01    -4.0545428E+00     3.7025308E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    31
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    31
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1200,7 +1200,7 @@
         1.7714       5.6453070E-01     2.6936500E+05    -4.6907232E-02     7.2324332E+01    -1.0657961E+01     4.5442718E+02
         1.6917       5.9113633E-01     2.8160900E+05    -4.9221222E-02     7.2208731E+01    -1.1165855E+01     4.5370084E+02
         1.6185       6.1787243E-01     2.9385300E+05    -5.1524400E-02     7.2087862E+01    -1.1668767E+01     4.5294140E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    32
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    32
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1226,7 +1226,7 @@
         1.8345       5.4510302E-01     2.6936500E+05     1.9942547E-13     7.4902000E+01     4.6927121E-11     4.7062314E+02
         1.7548       5.6988070E-01     2.8160900E+05     6.9952720E-14     7.4902000E+01     1.6460684E-11     4.7062314E+02
         1.6816       5.9465839E-01     2.9385300E+05     1.2356619E-14     7.4902000E+01     2.9076555E-12     4.7062314E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    33
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    33
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1252,7 +1252,7 @@
         2.2823       4.3814629E-01     2.6936500E+05    -1.0494435E-02     9.3186470E+01    -3.0722871E+00     5.8550786E+02
         2.1827       4.5814740E-01     2.8160900E+05    -1.1023225E-02     9.3169150E+01    -3.2264927E+00     5.8539904E+02
         2.0914       4.7815604E-01     2.9385300E+05    -1.1547769E-02     9.3151814E+01    -3.3793974E+00     5.8529011E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    34
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    34
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1278,7 +1278,7 @@
         2.4543       4.0745345E-01     2.6936500E+05     1.5449203E-14     1.0020606E+02     4.8635114E-12     6.2961326E+02
         2.3476       4.2597426E-01     2.8160900E+05     0.0000000E+00     1.0020606E+02     0.0000000E+00     6.2961326E+02
         2.2497       4.4449508E-01     2.9385300E+05     3.5274559E-14     1.0020606E+02     1.1104665E-11     6.2961326E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    35
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    35
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1304,7 +1304,7 @@
         3.0882       3.2381165E-01     2.6936500E+05     1.0485961E-14     1.2608968E+02     4.1537241E-12     7.9224479E+02
         2.9539       3.3853053E-01     2.8160900E+05    -4.8288925E-15     1.2608968E+02    -1.9128325E-12     7.9224479E+02
         2.8309       3.5324940E-01     2.9385300E+05     6.1871689E-14     1.2608968E+02     2.4508762E-11     7.9224479E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    36
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    36
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1330,7 +1330,7 @@
         3.3799       2.9586497E-01     2.6936500E+05    -5.8094529E-03     1.3799980E+02    -2.5186252E+00     8.6707829E+02
         3.2324       3.0937028E-01     2.8160900E+05    -6.1577021E-03     1.3797448E+02    -2.6691152E+00     8.6691925E+02
         3.0971       3.2287872E-01     2.9385300E+05    -6.5040632E-03     1.3794995E+02    -2.8187474E+00     8.6676507E+02
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    37
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    37
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1356,7 +1356,7 @@
         6.1756       1.6192735E-01     2.6936500E+05    -4.8249075E-03     2.5214583E+02    -3.8219998E+00     1.5842790E+03
         5.9048       1.6935443E-01     2.8160900E+05    -5.4536368E-03     2.5204658E+02    -4.3183405E+00     1.5836553E+03
         5.6566       1.7678352E-01     2.9385300E+05    -6.0934985E-03     2.5195279E+02    -4.8232054E+00     1.5830661E+03
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    38
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    38
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1382,7 +1382,7 @@
         6.3841       1.5663917E-01     2.6936500E+05    -9.0126028E-04     2.6065833E+02    -7.3802609E-01     1.6377646E+03
         6.1046       1.6381059E-01     2.8160900E+05    -1.1286804E-03     2.6057659E+02    -9.2396658E-01     1.6372510E+03
         5.8485       1.7098316E-01     2.9385300E+05    -1.3569032E-03     2.6049994E+02    -1.1104688E+00     1.6367694E+03
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    39
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    39
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
 0                                                       FLUTTER  SUMMARY
@@ -1413,7 +1413,7 @@
                                  (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
                                        (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
                                        (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
-1                                                                          NOVEMBER  10, 2022  MSC Nastran  3/11/18   PAGE    40
+1                                                                          NOVEMBER  17, 2022  MSC Nastran  3/11/18   PAGE    40
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
  * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     71
