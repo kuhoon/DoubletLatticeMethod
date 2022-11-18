@@ -13,7 +13,7 @@ res = read_f06('sol145_adddlm_f025_coupled.f06')
 pages = join_flutter_pages(res.flutter)
 df = flutter_pages_to_df(pages)
 get_critical_roots(df)
-
+# print(df.VELOCITY*0.001) #show VELOCITY in Dataframe, change mm/s to m/s with *0.001
 p = plot_vf_vg(df, modes=(1, 3, 4, 6, 7, 9, 10, 12))
 plt.title('FLUTTER ANALYSIS : Ref2020_DLM', pad=160)
 plt.xlabel('Equivalent Airspeed (m/s)')
