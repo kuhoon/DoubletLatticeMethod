@@ -3,7 +3,7 @@ from nastran.post.flutter import get_critical_roots, join_flutter_pages, flutter
 from nastran.post.plots import plot_vf_vg
 import matplotlib.pyplot as plt
 # how many modes want to print
-# Nastran always adds 6 more modes automatically.
+# In sol 145, Nastran always adds more 6 modes automatically.
 # There is no need to consider the 6 modes other than the mode that requested output.
 # can change mm/s to m/s or others
 # C:\Users\kuhoo\AppData\Local\Programs\Python\Python310\Lib\site-packages\nastran\post\plots.py
