@@ -1,7 +1,8 @@
 import os
 from pyNastran.bdf.bdf import *
 import numpy as np
-from math import pi
+from math import *
+# import math
 
 nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
@@ -194,7 +195,6 @@ elif nn == 2 :
                         0.0, 0.0, float(s), 0.0, float(iyy),
                         0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
 
-
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
     model.add_pbeam(int(p), 1, [0.0], ['YES'], [float(a)], [float(i1)], [float(i2)], [0], [float(j)], k1=1., k2=1.)
@@ -220,19 +220,37 @@ for x, y, z, c in zip(xLeList, yLeList, zLeList, cList):
     eId = eId + 1
 
 # insert model.add_aefact for caero1
-y = np.arange(0,1.25,0.25) # same
+box1 = np.linspace(0,1,5)
 
-x1 = np.linspace(0, pi/2, 13) # wide narrow
-y1= np.sin(x1)
+# x1 = np.linspace(0, pi/2, 13) # wide narrow
+# y1= np.sin(x1)
+# # print(y1)
+#
+# x2 = np.linspace(-pi/2, pi/2, 33) # narrow wide narrow
+# y2 = (np.sin(x2)+1)/2
+# print(y2)
 
-x2 = np.linspace(-pi/2, pi/2, 33) # narrow wide narrow
-y2 = (np.sin(x2)+1)/2
+# x2 = np.linspace(0,7*pi/24, 10)
+# y2=np.sin(x2)
+# y22= np.linspace(sin(7*pi/24),1,6)
+y2 = np.linspace(0, 0.8, 11)
+y22 = np.linspace(0.8, 1, 4)
+box2 = np.unique(np.concatenate((y2, y22)))
+print(len(box2))
+print(box2)
 
-bSpanList = [len(y)-1, len(y1)-1, len(y2)-1] # [4, 12, 32]
+y3 = np.linspace(0, 0.14, 6)
+y33 = np.linspace(0.14, 0.92, 25)
+y333 = np.linspace(0.92, 1, 6)
+box3 = np.unique(np.concatenate((y3, y33, y333)))
+print(len(box3))
+print(box3)
 
-model.add_aefact(1, y)
-model.add_aefact(2,y1)
-model.add_aefact(3, y2)
+bSpanList = [len(box1)-1, len(box2)-1, len(box3)-1] # [4, 12, 32], maximal panel [4, 14, 36]
+
+model.add_aefact(1, box1)
+model.add_aefact(2,box2)
+model.add_aefact(3, box3)
 
 # insert model.add_paero1, caero1
 eId2 = 103001
@@ -258,7 +276,7 @@ model.add_card(['SPLINE7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, Non
 # manage aelist
 eId2 = eId2 - (1000 * len(bSpanList))
 for i in range(len(bSpanList)):
-    for b in range(bSpanList[i] * 6):
+    for b in range(bSpanList[i] * nCh):
         aelistList.append(eId2 + b)
     eId2 += 1000
 model.add_aelist(1, aelistList)  # mesh 33x6=
@@ -275,7 +293,7 @@ model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation
 
 # write bdf file
 model.validate()
-bdf145_filename_out = os.path.join('sol145_addDLM.bdf')
+bdf145_filename_out = os.path.join('sol145_addDLM_f025_coupled_4_13_34.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
