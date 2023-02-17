@@ -133,7 +133,7 @@ with open(rrfFileName) as datFile:
 with open(v3FileName) as datFile:
     tempList = [data.split() for data in datFile]
     for t in tempList:
-        v3ValueList.append(float(t[0]) * -1)
+        v3ValueList.append(float(t[0]))
 
 # ====================================================================
 # ========================= ADD ATTRIBUTES ===========================
@@ -155,7 +155,8 @@ cc = CaseControlDeck([
     'ANALYSIS = FLUTTER',
     'AESYMXY = Asymmetric',
     'AESYMXZ = Symmetric',
-    'FMETHOD = 1'
+    'FMETHOD = 1',
+    'ECHO = BOTH'
 ])
 model.case_control_deck = cc
 model.validate()
@@ -168,6 +169,7 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0
 model.add_param('Aunit', [1.0])
+model.add_param('OMODES', ['ALL'])
 
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
@@ -285,15 +287,16 @@ model.add_aelist(1, aelistList)  # mesh 33x6=
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13 #cruise_level_air_density
 model.add_flfact(1, [float(cruiseAD/seaAD)])
-model.add_flfact(2, [float(0.0)])
+model.add_flfact(2, [float(0.45)])
 model.add_flfact(3, v3ValueList)
+#if v3ValueList is positiv, cant get .op2. but if negaitve, can get .op2
 
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation 'L'inear
 
 # write bdf file
-model.validate()
-bdf145_filename_out = os.path.join('sol145_addDLM_f025_coupled_4_13_34.bdf')
+# model.validate()
+bdf145_filename_out = os.path.join('sol145_addDLM_f025_coupled_4_13_34_test.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
