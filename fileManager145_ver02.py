@@ -8,9 +8,14 @@ nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
 machFileName = "datFiles_numbering/6_machNum.dat"
-rrfFileName = "datFiles_numbering/7_redRF.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
-v3FileName = "datfiles_numbering/8_v3.dat" #수정완료, 하지만 계산이 왜 이렇게 되었는지 알아야함
-
+rrfFileName = "datFiles_numbering/7_redRF.dat"
+v3FileName = "datfiles_numbering/8_v3.dat"
+#v_min = stall speed
+#v_max = dive speed
+#f_min  = smaller than first bending mode freq
+#f_max = greater than first torsion mode freq.
+#k_red_min = pi()*f_min*chord/v_max
+#k_red_max = pi()*f_max*chord/v_min
 model = BDF()
 
 idList = [] #declare a variable. start on the first line
