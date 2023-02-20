@@ -8,7 +8,9 @@ nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
 machFileName = "datFiles_numbering/6_machNum.dat"
-rrfFileName = "datFiles_numbering/7_redRF.dat"
+rrfFileName_25 = "datFiles_numbering/7_25_redRF.dat"
+rrfFileName_50 = "datFiles_numbering/7_50_redRF.dat"
+rrfFileName_100 = "datFiles_numbering/7_100_redRF.dat"
 v3FileName = "datfiles_numbering/8_v3.dat"
 #v_min = stall speed
 #v_max = dive speed
@@ -68,6 +70,12 @@ if n == 25 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
+    # open 7_redRF.dat file
+    with open(rrfFileName_25) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
 elif n == 50 :
     with open("Ref_220425/masses_f050/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
@@ -77,6 +85,12 @@ elif n == 50 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
+    # open 7_redRF.dat file
+    with open(rrfFileName_50) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
 elif n == 100 :
     with open("Ref_220425/masses_f100/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
@@ -86,6 +100,11 @@ elif n == 100 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
+    # open 7_redRF.dat file
+    with open(rrfFileName_100) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
 
 # open node.dat file_Wing
 with open("Ref_220425/data_nodes.dat") as datFile:
@@ -127,12 +146,6 @@ with open(machFileName) as datFile:
     tempList = [data.split() for data in datFile]
     for t in tempList:
         machValueList.append(float(t[0]))
-
-# open 7_redRF.dat file
-with open(rrfFileName) as datFile:
-    tempList = [data.split() for data in datFile]
-    for t in tempList:
-        rrfValueList.append(float(t[0]))
 
 # open 8_v3.dat file
 with open(v3FileName) as datFile:
@@ -181,26 +194,14 @@ for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
     model.add_grid(int(i), [float(x), float(y), float(z)])
 
 # insert model.add_conm1(id_conm1, id_no, Mlump)
-nn = int(input("Bitte geben Sie 1 für ungekoppelt, 2 für gekoppelt ein : "))
-
-if nn == 1 :
-    for j, i, m, s, iyy in zip(conm1List, idList, mass, firstMoment, iYy):
-        model.add_card(['CONM1', int(j) + 10000, int(i), 0,
-                        float(m),
-                        0.0, float(m),
-                        0.0, 0.0, float(m),
-                        0.0, 0.0, 0.0, 0.0,
-                        0.0, 0.0, 0.0, 0.0, float(iyy),
-                        0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
-elif nn == 2 :
-    for j, i, m, s, iyy in zip(conm1List, idList, mass, firstMoment, iYy):
-        model.add_card(['CONM1', int(j) + 10000, int(i), 0,
-                        float(m),
-                        0.0, float(m),
-                        0.0, 0.0, float(m),
-                        0.0, 0.0, 0.0, 0.0,
-                        0.0, 0.0, float(s), 0.0, float(iyy),
-                        0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
+for j, i, m, s, iyy in zip(conm1List, idList, mass, firstMoment, iYy):
+    model.add_card(['CONM1', int(j) + 10000, int(i), 0,
+                    float(m),
+                    0.0, float(m),
+                    0.0, 0.0, float(m),
+                    0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.0, float(s), 0.0, float(iyy),
+                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
 for p, a, i1, i2, j in zip(pbeamList, areaList, i1List, i2List, jList):
@@ -301,7 +302,7 @@ model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation
 
 # write bdf file
 # model.validate()
-bdf145_filename_out = os.path.join('sol145_addDLM_f025_coupled_4_13_34_test.bdf')
+bdf145_filename_out = os.path.join('sol145_addDLM_f100_coupled_4_13_34_test.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")

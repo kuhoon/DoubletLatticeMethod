@@ -105,7 +105,7 @@ elif nn == 2 : # Kopplung
                         0.0, float(m),
                         0.0, 0.0, float(m),
                         0.0, 0.0, 0.0, 0.0,
-                        0.0, 0.0, float(s), 0.0, float(iyy),
+                        0.0, 0.0, float(s)*-1, 0.0, float(iyy),
                         0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'CONM1')
 
 # insert model.add_pbeam(id_pbeam, mid, x/xb, so, area, i1, i2, i12, j)
@@ -137,17 +137,18 @@ cc = CaseControlDeck([
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
     'SET 99 = 1,THRU, 12', #which mode do you want to print
-    'MEFFMASS(ALL) = YES'
+    'MEFFMASS(ALL) = YES',
+    'ECHO = BOTH'
 ])
 model.case_control_deck = cc
 model.validate()
 
-model.add_param('POST', [-1]) #print result. 0 = .xdb, -1 = .op2
+model.add_param('POST', [-1]) #print result. 0 = .xdb, -1, 1 = .op2
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
 
-bdf_filename_out = os.path.join('sol103_addDLM_test.bdf')
+bdf_filename_out = os.path.join('sol103_100_coupled.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 print("====> write bdf file success!")
