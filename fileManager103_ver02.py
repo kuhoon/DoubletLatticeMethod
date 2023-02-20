@@ -26,7 +26,16 @@ jList = []
 idFromList = []
 idToList = []
 
-n = int(input("Bitte gebe eine Beladungszustände mit 25, 50 und 100% ein : "))
+n = int(input("Bitte gebe eine Beladungszustände mit0, 25, 50 und 100% ein : "))
+if n == 0 :
+    with open("Ref_220425/masses_f000/data_masses.dat") as datFile:
+        lumpValueList = [data.split() for data in datFile]
+        del lumpValueList[0]
+        for v in lumpValueList:
+            conm1List.append(v[0])  # conm1list 1-100
+            mass.append(v[2])
+            iYy.append(v[3])
+            firstMoment.append(v[4])
 if n == 25 :
     with open("Ref_220425/masses_f025/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
@@ -148,7 +157,7 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
 
-bdf_filename_out = os.path.join('sol103_100_coupled.bdf')
+bdf_filename_out = os.path.join('sol103_000_uncoupled.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 print("====> write bdf file success!")

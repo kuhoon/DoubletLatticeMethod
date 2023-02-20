@@ -10,7 +10,26 @@ import matplotlib.pyplot as plt
 
 # new1 = 'C:\Users\kuhoo\PycharmProjects\DoubletLatticeMethod\Change_sPan\new'
 
-n = int(input("Bitte gebe eine Beladungszustände mit 25, 50 und 100% ein : "))
+n = int(input("Bitte gebe eine Beladungszustände mit 00, 25, 50 und 100% ein : "))
+if n == 00 :
+    res = read_f06('ref_flugel/sol145/sol145_adddlm_f000_coupled_4_13_34_test.f06')
+    pages = join_flutter_pages(res.flutter)
+    df = flutter_pages_to_df(pages)
+    get_critical_roots(df)
+    # print(df.VELOCITY*0.001) #show VELOCITY in Dataframe, change mm/s to m/s with *0.001
+    p = plot_vf_vg(df, modes=(1, 3, 4, 7, 8, 10, 12))
+    plt.title('FLUTTER ANALYSIS : Ref2020_DLM_TEST_00', pad=160)
+    plt.xlabel('Equivalent Airspeed (m/s)')
+    plt.ylabel('                                                      DAMPING                       FREQUENCY(Hz)')
+    plt.show()
+
+    p = plot_complex(df, modes=(1, 3, 4, 5, 7, 8, 10, 12))
+    plt.axvline(x=0, ymin=0, ymax=1, linestyle='dashed')
+    plt.title('FLUTTER_Root_Locus_Method : Ref2020_DLM_TEST_00')
+    plt.xlabel('Real Part (rad/sec)')
+    plt.ylabel('Imaginary part (Hz)')
+    plt.show()
+
 if n == 25 :
     res = read_f06('ref_flugel/sol145/sol145_adddlm_f025_coupled_4_13_34_test.f06')
     pages = join_flutter_pages(res.flutter)

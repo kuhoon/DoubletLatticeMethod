@@ -8,6 +8,7 @@ nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
 machFileName = "datFiles_numbering/6_machNum.dat"
+rrfFileName_00 = "datFiles_numbering/7_00_redRF.dat"
 rrfFileName_25 = "datFiles_numbering/7_25_redRF.dat"
 rrfFileName_50 = "datFiles_numbering/7_50_redRF.dat"
 rrfFileName_100 = "datFiles_numbering/7_100_redRF.dat"
@@ -60,7 +61,22 @@ mat = model.add_mat1(1, E, G, nu, rho)
 # =========================== OPEN FILES =============================
 # ====================================================================
 
-n = int(input("Bitte gebe eine Beladungszustände mit 25, 50 und 100% ein : "))
+n = int(input("Bitte gebe eine Beladungszustände mit 00, 25, 50 und 100% ein : "))
+if n == 00 :
+    with open("Ref_220425/masses_f000/data_masses.dat") as datFile:
+        lumpValueList = [data.split() for data in datFile]
+        del lumpValueList[0]
+        for v in lumpValueList:
+            conm1List.append(v[0])  # conm1list 1-100
+            mass.append(v[2])
+            iYy.append(v[3])
+            firstMoment.append(v[4])
+    # open 7_redRF.dat file
+    with open(rrfFileName_00) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
 if n == 25 :
     with open("Ref_220425/masses_f025/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
