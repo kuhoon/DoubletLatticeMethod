@@ -27,7 +27,7 @@ idFromList = []
 idToList = []
 
 n = int(input("Bitte gebe eine Beladungszustände mit0, 25, 50 und 100% ein : "))
-if n == 0 :
+if n == 00 :
     with open("Ref_220425/masses_f000/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
@@ -145,7 +145,6 @@ cc = CaseControlDeck([
     'VECTOR(SORT1,PUNCH, REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
-    'SET 99 = 1,THRU, 12', #which mode do you want to print
     'MEFFMASS(ALL) = YES',
     'ECHO = BOTH'
 ])
@@ -157,7 +156,14 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 model.add_param('WTMASS', [1.])
 
-bdf_filename_out = os.path.join('sol103_000_uncoupled.bdf')
+# bdf_filename_out = os.path.join('sol103_000_coupled.bdf')
+# bdf_filename_out = os.path.join('sol103_025_coupled.bdf' )
+# bdf_filename_out = os.path.join('sol103_050_coupled.bdf')
+# bdf_filename_out = os.path.join('sol103_100_coupled.bdf')
+# bdf_filename_out = os.path.join('MA/sol103_000_uncoupled.bdf')
+# bdf_filename_out = os.path.join('sol103_025_uncoupled.bdf')
+# bdf_filename_out = os.path.join('sol103_050_uncoupled.bdf')
+# bdf_filename_out = os.path.join('sol103_100_uncoupled.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 print("====> write bdf file success!")

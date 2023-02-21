@@ -8,11 +8,11 @@ nodesFileName = "Ref_220425/data_nodes.dat"
 elementsFileName = "Ref_220425/data_elements.dat"
 sectionFileName = "Ref_220425/data_planform.dat"
 machFileName = "datFiles_numbering/6_machNum.dat"
-rrfFileName_00 = "datFiles_numbering/7_00_redRF.dat"
-rrfFileName_25 = "datFiles_numbering/7_25_redRF.dat"
-rrfFileName_50 = "datFiles_numbering/7_50_redRF.dat"
-rrfFileName_100 = "datFiles_numbering/7_100_redRF.dat"
-v3FileName = "datfiles_numbering/8_v3.dat"
+rrfFileName_00 = "datFiles_numbering/7_00_redRF_636.dat"
+rrfFileName_25 = "datFiles_numbering/7_25_redRF_636.dat"
+rrfFileName_50 = "datFiles_numbering/7_50_redRF_636.dat"
+rrfFileName_100 = "datFiles_numbering/7_100_redRF_636.dat"
+v3FileName = "datfiles_numbering/8_v3_636.dat"
 #v_min = stall speed
 #v_max = dive speed
 #f_min  = smaller than first bending mode freq
@@ -190,7 +190,8 @@ cc = CaseControlDeck([
     'AESYMXY = Asymmetric',
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
-    'ECHO = BOTH'
+    'ECHO = BOTH',
+    'STRESS(SORT1,REAL)=ALL'
 ])
 model.case_control_deck = cc
 model.validate()
@@ -318,7 +319,9 @@ model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation
 
 # write bdf file
 # model.validate()
-bdf145_filename_out = os.path.join('sol145_addDLM_f100_coupled_4_13_34_test.bdf')
+bdf145_filename_out = os.path.join('MA/sol145_addDLM_f000_636.bdf')
+# bdf145_filename_out = os.path.join('sol145_addDLM_f000_636.bdf')
+# bdf145_filename_out = os.path.join('sol145_addDLM_f000_636.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")

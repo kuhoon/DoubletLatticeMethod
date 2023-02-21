@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 n = int(input("Bitte gebe eine Beladungszustände mit 00, 25, 50 und 100% ein : "))
 if n == 00 :
-    res = read_f06('ref_flugel/sol145/sol145_adddlm_f000_coupled_4_13_34_test.f06')
+    res = read_f06('test/sol145_adddlm_f000_636.f06')
     pages = join_flutter_pages(res.flutter)
     df = flutter_pages_to_df(pages)
     get_critical_roots(df)
@@ -31,7 +31,7 @@ if n == 00 :
     plt.show()
 
 if n == 25 :
-    res = read_f06('ref_flugel/sol145/sol145_adddlm_f025_coupled_4_13_34_test.f06')
+    res = read_f06('test/sol145_adddlm_f025_636.f06')
     pages = join_flutter_pages(res.flutter)
     df = flutter_pages_to_df(pages)
     get_critical_roots(df)
@@ -50,7 +50,7 @@ if n == 25 :
     plt.show()
 
 elif n == 50 :
-    res = read_f06('ref_flugel/sol145/sol145_adddlm_f050_coupled_4_13_34_test.f06')
+    res = read_f06('test/sol145_adddlm_f050_636.f06')
     pages = join_flutter_pages(res.flutter)
     df = flutter_pages_to_df(pages)
     get_critical_roots(df)
@@ -69,7 +69,7 @@ elif n == 50 :
     plt.show()
 
 elif n == 100 :
-    res = read_f06('ref_flugel/sol145/sol145_adddlm_f100_coupled_4_13_34_test.f06')
+    res = read_f06('test/sol145_adddlm_f100_636.f06')
     pages = join_flutter_pages(res.flutter)
     df = flutter_pages_to_df(pages)
     get_critical_roots(df)
