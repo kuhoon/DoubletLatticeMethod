@@ -1,0 +1,1413 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2017 MSC Software Corporation and its licensors. All rights reserved.         
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC Software          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2018.1.0-CL553137   * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          MAR 11, 2018           * *
+                                              * *                                 * *
+                                              * *               AMD               * *
+                                              * *MODEL AMD FX(tm)-8350 Eight-Core * *
+                                              * * Windows 10 Enterprise 6.2 9200  * *
+                                              * * Compiled for 8664 (SINGLE Mode) * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file - (March 2, 2018)
+  
+               Welcome to MSC Nastran 2018.1
+  
+  
+   Details of the new capabilities can be found in the MSC Nastran 2018
+     Release Guide available online in the installation documentation
+     sub-directory.
+   Additional information can be found at the MSC Nastran Product Support page:
+  
+      http://simcompanion.mscsoftware.com
+  
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+      * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      http://www.mscsoftware.com/Contents/Services/Training/
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions.
+  
+     -  The purpose of this release is to sync MSC Nastran 2018.1
+        with Patran 2018.0 release for improved compatibility
+  
+     Dynamics
+     -  Structural and Fluid Material property specification can now be
+        frequency dependent.
+     -  Anisotropic structural damping can be defined for composite
+        materials. Restriction removed that damping is proportional to
+        stiffness.
+     -  Spatial definition of property and material available now.
+  
+     Linear Buckling
+     -  Linear Buckling with local exclusion of differential stiffness in SOL
+        105.
+  
+     Rotordynamics
+     -  Enhanced Mode-Tracking for Campbell Diagrams. Two new methods
+1       introduced: Numerical Slope-Continuity and Eigenvector-Based.
+     -  Rotors can now be included in upstream Part Superelements for
+        both single and multi-level assemblies.
+     -  Support for definition of CBUSH element cross-coupling terms.
+  
+     Multiple-Mass Configuration
+     -  Easy definition and analysis of multiple mass cases in a single run.
+        Supported in SOL 101, 103, 107/110, 108/111, 109/112, 144, 145, 146,
+        200 and 400 solution sequences.
+  
+     Optimization
+     -  Shell stress constraints can now be defined for Topology Optimization.
+  
+     Assembly
+     -  New modules that can assemble multiple Bulk Data sections to form a
+        single MSC Nastran input file. Modules are analogous to part
+        superelements without reduction and are supported in SOL 101 - 112.
+  
+     Implicit Nonlinear Analysis - SOL 400
+     -  GPFORCE Output with Contact
+     -  Automatic Contact Generation
+     -  External Superelements Creation, Assembly and Data Recovery
+     -  CFAST Fastener element enabled to FUSE based on load criteria.
+  
+     Explicit Nonlinear Analysis - SOL 700
+     -  Automated Coupling Surfaces
+     -  New SOL 700 Dytran, Dytran under Nastran
+  
+     HPC
+     -  Improved performance and scalability for the New ACMS method
+     -  New MPYAD with better parallel performance and better method
+        selection.
+     -  New command line option, solve=auto and cpumax=N, to automatically
+        choose optimal solver and parallel options based on hardware and
+        the model.
+  
+     Results HDF5 Database
+     -  Additional data blocks have been added to the HDF5 file: OEFTGV,
+        OMONPNT, TOMVAR, TOPVAR, R1TABRD, HISADD, RESP12, WETFACES, META,
+        OFCRFM, EPTFSP, MPTFSP, TRNUORD, and UHT, as well as modal and
+        Rotordynamic matrices.
+  
+     Documentation
+  
+     The complete documentation set is provided in a separate installer and
+     when installed is available at:
+     MSC_DOC_DIR/doc/pdf_nastran directory.
+     Where MSC_DOC_DIR is the directory where documentation was installed
+     This help set has cross references between documents, links to how-to
+     videos, and example files.
+1 
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.mscsoftware.com/
+  
+     These documents were updated for the MSC Nastran 2018.0 Release
+  
+         1.  MSC Nastran 2018.0 Installation and Operations Guide
+         2.  MSC Nastran 2018.0 Quick Reference Guide
+         3.  MSC Nastran 2018.0 Release Guide
+         4.  MSC Nastran 2018.0 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2018.0 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2018.0 Superelements User's Guide
+         7.  MSC Nastran 2018.0 Rotordynamics User's Guide
+         8.  MSC Nastran 2018.0 Demonstration Problems Manual
+         9.  MSC Nastran 2018.0 Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2018.0 Design Sensitivity and Optimization
+        11.  MSC Nastran 2018.0 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2018.0 DMAP Programmer's Guide
+        13.  MSC Nastran 2018.0 High Performance Computing User's Guide
+  
+  
+  
+    Please refer to:
+  
+    MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+  
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ SYSFIELD=SCR*(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NAS
+     $ SYSFIELD=DBALL(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NA
+     NASTRAN BUFFSIZE=8193 $(C:/MSC.SOFTWARE/MSC_NASTRAN/20181/CONF/NAST20181.RCF[6])
+     $PYNASTRAN: VERSION=MSC                                                         
+     $PYNASTRAN: PUNCH=FALSE                                                         
+     $PYNASTRAN: ENCODING=UTF-8                                                      
+     $PYNASTRAN: NNODES=78                                                           
+     $PYNASTRAN: NELEMENTS=25                                                        
+     $EXECUTIVE CONTROL DECK                                                         
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 103                                                                                 
+     CEND                                                                                    
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      $CASE CONTROL DECK                                                                      
+                  2      SUBCASE 1                                                                               
+                  3          DISPLACEMENT(SORT1,PUNCH, REAL) = ALL                                               
+                  4          ECHO = BOTH                                                                         
+                  5          MEFFMASS(ALL) = YES                                                                 
+                  6          METHOD = 5                                                                          
+                  7          SPC = 50                                                                            
+                  8          SPCFORCES(SORT1, REAL) = ALL                                                        
+                  9          SUBTITLE = DEFAULT                                                                  
+                 10      BEGIN BULK                                                                              
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                   19-        $PARAMS
+                   20-        PARAM     OMODES     ALL
+                   21-        PARAM       POST      -1
+                   22-        PARAM   PRTMAXIM     YES
+                   23-        PARAM     WTMASS      1.
+                   24-        $NODES
+                   25-        GRID           1        1235.608      0.      0.
+                   26-        GRID           2        1232.697414.6519      0.
+                   27-        GRID           3        1231.348829.3038      0.
+                   28-        GRID           4        1228.1471196.124      0.
+                   29-        GRID           5        1227.6631562.943      0.
+                   30-        GRID           6        1227.6951929.763      0.
+                   31-        GRID           7          1226.72296.583      0.
+                   32-        GRID           8          1225.82663.403      0.
+                   33-        GRID           9           1225.2943.278      0.
+                   34-        GRID          10        1224.2713223.153      0.
+                   35-        GRID          11        1220.6033582.494      0.
+                   36-        GRID          12         1216.933941.836      0.
+                   37-        GRID          13        1213.253 4307.61      0.
+                   38-        GRID          14        1210.0224673.384      0.
+                   39-        GRID          15        1195.3745039.158      0.
+                   40-        GRID          16        1170.8035404.932      0.
+                   41-        GRID          17        1151.3635770.706      0.
+                   42-        GRID          18        1135.0566091.794      0.
+                   43-        GRID          19        1120.4756412.882      0.
+                   44-        GRID          20        1107.385 6733.97      0.
+                   45-        GRID          21        1091.7057096.859      0.
+                   46-        GRID          22        1080.5267459.748      0.
+                   47-        GRID          23        1069.6577822.636      0.
+                   48-        GRID          24        1059.1338185.525      0.
+                   49-        GRID          25        1049.5368531.767      0.
+                   50-        GRID          26         1040.47 8878.01      0.
+                   51-        GRID          27              0.      0.      0.
+                   52-        GRID          28        2441.247      0.      0.
+                   53-        GRID          29              0.414.6519      0.
+                   54-        GRID          30        2441.247414.6519      0.
+                   55-        GRID          31              0.829.3038      0.
+                   56-        GRID          32        2441.247829.3038      0.
+                   57-        GRID          33        12.809631196.124      0.
+                   58-        GRID          34        2438.9311196.124      0.
+                   59-        GRID          35        25.619261562.943      0.
+                   60-        GRID          36        2436.6141562.943      0.
+                   61-        GRID          37        38.428891929.763      0.
+                   62-        GRID          38        2434.2981929.763      0.
+                   63-        GRID          39        51.238522296.583      0.
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                   64-        GRID          40        2431.9822296.583      0.
+                   65-        GRID          41        64.048152663.403      0.
+                   66-        GRID          42        2429.6662663.403      0.
+                   67-        GRID          43         73.82162943.278      0.
+                   68-        GRID          44        2427.8982943.278      0.
+                   69-        GRID          45        83.595043223.153      0.
+                   70-        GRID          46        2426.1313223.153      0.
+                   71-        GRID          47        119.84223582.494      0.
+                   72-        GRID          48        2377.2673582.494      0.
+                   73-        GRID          49        156.08943941.836      0.
+                   74-        GRID          50        2328.4033941.836      0.
+                   75-        GRID          51        192.9854 4307.61      0.
+                   76-        GRID          52        2278.665 4307.61      0.
+                   77-        GRID          53        229.88144673.384      0.
+                   78-        GRID          54        2228.9264673.384      0.
+                   79-        GRID          55        266.77745039.158      0.
+                   80-        GRID          56        2179.1885039.158      0.
+                   81-        GRID          57        303.67345404.932      0.
+                   82-        GRID          58        2129.4495404.932      0.
+                   83-        GRID          59        340.56945770.706      0.
+                   84-        GRID          60         2079.715770.706      0.
+                   85-        GRID          61        372.95786091.794      0.
+                   86-        GRID          62        2036.0486091.794      0.
+                   87-        GRID          63        405.34636412.882      0.
+                   88-        GRID          64        1992.3866412.882      0.
+                   89-        GRID          65        437.7348 6733.97      0.
+                   90-        GRID          66        1948.724 6733.97      0.
+                   91-        GRID          67        474.33977096.859      0.
+                   92-        GRID          68        1899.3787096.859      0.
+                   93-        GRID          69        510.94477459.748      0.
+                   94-        GRID          70        1850.0327459.748      0.
+                   95-        GRID          71        547.54967822.636      0.
+                   96-        GRID          72        1800.6867822.636      0.
+                   97-        GRID          73        584.15468185.525      0.
+                   98-        GRID          74        1751.3398185.525      0.
+                   99-        GRID          75        619.08048531.767      0.
+                  100-        GRID          76        1704.2578531.767      0.
+                  101-        GRID          77        654.0062 8878.01      0.
+                  102-        GRID          78        1657.174 8878.01      0.
+                  103-        $ELEMENTS
+                  104-        CBEAM          1       1       1       2      0.      0.      1.
+                  105-        CBEAM          2       2       2       3      0.      0.      1.
+                  106-        CBEAM          3       3       3       4      0.      0.      1.
+                  107-        CBEAM          4       4       4       5      0.      0.      1.
+                  108-        CBEAM          5       5       5       6      0.      0.      1.
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  109-        CBEAM          6       6       6       7      0.      0.      1.
+                  110-        CBEAM          7       7       7       8      0.      0.      1.
+                  111-        CBEAM          8       8       8       9      0.      0.      1.
+                  112-        CBEAM          9       9       9      10      0.      0.      1.
+                  113-        CBEAM         10      10      10      11      0.      0.      1.
+                  114-        CBEAM         11      11      11      12      0.      0.      1.
+                  115-        CBEAM         12      12      12      13      0.      0.      1.
+                  116-        CBEAM         13      13      13      14      0.      0.      1.
+                  117-        CBEAM         14      14      14      15      0.      0.      1.
+                  118-        CBEAM         15      15      15      16      0.      0.      1.
+                  119-        CBEAM         16      16      16      17      0.      0.      1.
+                  120-        CBEAM         17      17      17      18      0.      0.      1.
+                  121-        CBEAM         18      18      18      19      0.      0.      1.
+                  122-        CBEAM         19      19      19      20      0.      0.      1.
+                  123-        CBEAM         20      20      20      21      0.      0.      1.
+                  124-        CBEAM         21      21      21      22      0.      0.      1.
+                  125-        CBEAM         22      22      22      23      0.      0.      1.
+                  126-        CBEAM         23      23      23      24      0.      0.      1.
+                  127-        CBEAM         24      24      24      25      0.      0.      1.
+                  128-        CBEAM         25      25      25      26      0.      0.      1.
+                  129-        $PROPERTIES
+                  130-        PBEAM          1       112021.273.5057+8 1.175+9        6.6245+8
+                  131-        PBEAM          2       110733.973.1467+81.0523+9        5.9788+8
+                  132-        PBEAM          3       19559.6682.8026+8 9.387+8        5.3527+8
+                  133-        PBEAM          4       18523.8192.4884+88.3619+8        4.7527+8
+                  134-        PBEAM          5       17661.1362.2378+87.4613+8        4.1939+8
+                  135-        PBEAM          6       16888.3832.0098+86.6548+8        3.7025+8
+                  136-        PBEAM          7       16219.0951.8072+85.9685+8        3.3004+8
+                  137-        PBEAM          8       15594.1661.5936+85.5293+8          3.14+8
+                  138-        PBEAM          9       15159.5361.4406+85.2598+8        3.0773+8
+                  139-        PBEAM         10       14771.1751.2633+84.6959+8        2.7189+8
+                  140-        PBEAM         11       1 4263.41 1.012+8 3.929+8        2.2266+8
+                  141-        PBEAM         12       13769.6897.9662+73.2447+8        1.7932+8
+                  142-        PBEAM         13       13285.0636.1302+72.6341+8        1.4129+8
+                  143-        PBEAM         14       12835.7064.6281+72.1203+8        1.0969+8
+                  144-        PBEAM         15       12431.3973.4274+71.7046+8        8.4317+7
+                  145-        PBEAM         16       1 2104.42 2.565+71.3816+8        6.5317+7
+                  146-        PBEAM         17       11847.4841.9969+71.1355+8        5.2278+7
+                  147-        PBEAM         18       11642.6131.5877+79.4523+7        4.2616+7
+                  148-        PBEAM         19       11494.0861.2732+77.9738+7         3.485+7
+                  149-        PBEAM         20       11350.9159951566.6.6262+7        2.7834+7
+                  150-        PBEAM         21       1 1235.647711426. 5.479+7        2.1949+7
+                  151-        PBEAM         22       1 1162.686104576.4.5958+7        1.7633+7
+                  152-        PBEAM         23       11090.3534758000.3.8169+7        1.3974+7
+                  153-        PBEAM         24       11020.2673664865.3.1488+7         1.096+7
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  154-        PBEAM         25       1952.31772786340.2.5788+7        8505260.
+                  155-        $MATERIALS
+                  156-        MAT1           1 72397.5  27000.     .32   1.-16
+                  157-        $MASSES
+                  158-        CONM1      10001       1         .015673         .015673
+ *** USER INFORMATION MESSAGE 9991 (SDLWIF)
+     Messages are being generated at include level 0.
+     File: c:/users/student_sla/desktop/k_kwon_aeroelastik/ma_final/referenz/sol103/kopplung/sol103_100_coupled.bdf
+ *** USER WARNING MESSAGE 9994 (BULFUN)
+     MAT1 with MID=1 near line 156
+     User information:  Material has unreasonable or inconsistent values of E, G or NU.
+                  159-        +        .015673                                                -1.07518
+                  160-        +               3090.135
+                  161-        CONM1      10002       2        .0270982        .0270982
+                  162-        +       .0270982                                                 -1.8795
+                  163-        +               5846.591
+                  164-        CONM1      10003       3         .069217         .069217
+                  165-        +        .069217                                                -3.79952
+                  166-        +               5780.728
+                  167-        CONM1      10004       4        .0984514        .0984514
+                  168-        +       .0984514                                                -4.84795
+                  169-        +               5150.762
+                  170-        CONM1      10005       5         .098316         .098316
+                  171-        +        .098316                                                -6.54063
+                  172-        +               5252.542
+                  173-        CONM1      10006       6        .0970788        .0970788
+                  174-        +       .0970788                                                -6.24101
+                  175-        +               5084.367
+                  176-        CONM1      10007       7        .0948149        .0948149
+                  177-        +       .0948149                                                -2.44718
+                  178-        +               4571.237
+                  179-        CONM1      10008       8        .6826016        .6826016
+                  180-        +       .6826016                                                621.0874
+                  181-        +               669149.9
+                  182-        CONM1      10009       9        .0710291        .0710291
+                  183-        +       .0710291                                                 -4.9738
+                  184-        +               3651.116
+                  185-        CONM1      10010      10        .0807891        .0807891
+                  186-        +       .0807891                                                -6.22344
+                  187-        +               4212.744
+                  188-        CONM1      10011      11        .0833519        .0833519
+                  189-        +       .0833519                                                -5.51442
+                  190-        +               4081.079
+                  191-        CONM1      10012      12        .0796087        .0796087
+                  192-        +       .0796087                                                -4.22591
+                  193-        +               3750.534
+                  194-        CONM1      10013      13        .0704491        .0704491
+                  195-        +       .0704491                                                -2.79193
+                  196-        +               3314.268
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     8
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  197-        CONM1      10014      14        .0649882        .0649882
+                  198-        +       .0649882                                                -1.92282
+                  199-        +               2912.124
+                  200-        CONM1      10015      15        .0590311        .0590311
+                  201-        +       .0590311                                                -1.74646
+                  202-        +               2554.382
+                  203-        CONM1      10016      16        .0534615        .0534615
+                  204-        +       .0534615                                                -2.11074
+                  205-        +               2267.008
+                  206-        CONM1      10017      17        .0455491        .0455491
+                  207-        +       .0455491                                                -2.52952
+                  208-        +                1920.18
+                  209-        CONM1      10018      18        .0387729        .0387729
+                  210-        +       .0387729                                                -1.87072
+                  211-        +               1553.483
+                  212-        CONM1      10019      19        .0348417        .0348417
+                  213-        +       .0348417                                                -2.08429
+                  214-        +               1383.484
+                  215-        CONM1      10020      20        .0346753        .0346753
+                  216-        +       .0346753                                                  -2.039
+                  217-        +               1409.284
+                  218-        CONM1      10021      21        .0315098        .0315098
+                  219-        +       .0315098                                                -1.87726
+                  220-        +                1359.65
+                  221-        CONM1      10022      22        .0283898        .0283898
+                  222-        +       .0283898                                                -1.73669
+                  223-        +               1170.768
+                  224-        CONM1      10023      23        .0248434        .0248434
+                  225-        +       .0248434                                                -1.58964
+                  226-        +               978.0445
+                  227-        CONM1      10024      24        .0147928        .0147928
+                  228-        +       .0147928                                                -.911364
+                  229-        +                788.599
+                  230-        CONM1      10025      25        .0055903        .0055903
+                  231-        +       .0055903                                                -.415372
+                  232-        +               586.2883
+                  233-        CONM1      10026      26        .0029017        .0029017
+                  234-        +       .0029017                                                -.211446
+                  235-        +               255.1062
+                  236-        $RIGID ELEMENTS
+                  237-        RBE2         151       1  123456      27
+                  238-        RBE2         152       2  123456      29
+                  239-        RBE2         153       3  123456      31
+                  240-        RBE2         154       4  123456      33
+                  241-        RBE2         155       5  123456      35
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  242-        RBE2         156       6  123456      37
+                  243-        RBE2         157       7  123456      39
+                  244-        RBE2         158       8  123456      41
+                  245-        RBE2         159       9  123456      43
+                  246-        RBE2         160      10  123456      45
+                  247-        RBE2         161      11  123456      47
+                  248-        RBE2         162      12  123456      49
+                  249-        RBE2         163      13  123456      51
+                  250-        RBE2         164      14  123456      53
+                  251-        RBE2         165      15  123456      55
+                  252-        RBE2         166      16  123456      57
+                  253-        RBE2         167      17  123456      59
+                  254-        RBE2         168      18  123456      61
+                  255-        RBE2         169      19  123456      63
+                  256-        RBE2         170      20  123456      65
+                  257-        RBE2         171      21  123456      67
+                  258-        RBE2         172      22  123456      69
+                  259-        RBE2         173      23  123456      71
+                  260-        RBE2         174      24  123456      73
+                  261-        RBE2         175      25  123456      75
+                  262-        RBE2         176      26  123456      77
+                  263-        RBE2         178       1  123456      28
+                  264-        RBE2         179       2  123456      30
+                  265-        RBE2         180       3  123456      32
+                  266-        RBE2         181       4  123456      34
+                  267-        RBE2         182       5  123456      36
+                  268-        RBE2         183       6  123456      38
+                  269-        RBE2         184       7  123456      40
+                  270-        RBE2         185       8  123456      42
+                  271-        RBE2         186       9  123456      44
+                  272-        RBE2         187      10  123456      46
+                  273-        RBE2         188      11  123456      48
+                  274-        RBE2         189      12  123456      50
+                  275-        RBE2         190      13  123456      52
+                  276-        RBE2         191      14  123456      54
+                  277-        RBE2         192      15  123456      56
+                  278-        RBE2         193      16  123456      58
+                  279-        RBE2         194      17  123456      60
+                  280-        RBE2         195      18  123456      62
+                  281-        RBE2         196      19  123456      64
+                  282-        RBE2         197      20  123456      66
+                  283-        RBE2         198      21  123456      68
+                  284-        RBE2         199      22  123456      70
+                  285-        RBE2         200      23  123456      72
+                  286-        RBE2         201      24  123456      74
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    10
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  287-        RBE2         202      25  123456      76
+                  288-        RBE2         203      26  123456      78
+                  289-        $DYNAMIC
+                  290-        EIGRL          5                      12                             MAX
+                  291-        $SPCs
+                  292-        SPC1          50  123456       1       2       3
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    11
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                    1-        CBEAM   1       1       1       2       0.      0.      1.
+                    2-        CBEAM   2       2       2       3       0.      0.      1.
+                    3-        CBEAM   3       3       3       4       0.      0.      1.
+                    4-        CBEAM   4       4       4       5       0.      0.      1.
+                    5-        CBEAM   5       5       5       6       0.      0.      1.
+                    6-        CBEAM   6       6       6       7       0.      0.      1.
+                    7-        CBEAM   7       7       7       8       0.      0.      1.
+                    8-        CBEAM   8       8       8       9       0.      0.      1.
+                    9-        CBEAM   9       9       9       10      0.      0.      1.
+                   10-        CBEAM   10      10      10      11      0.      0.      1.
+                   11-        CBEAM   11      11      11      12      0.      0.      1.
+                   12-        CBEAM   12      12      12      13      0.      0.      1.
+                   13-        CBEAM   13      13      13      14      0.      0.      1.
+                   14-        CBEAM   14      14      14      15      0.      0.      1.
+                   15-        CBEAM   15      15      15      16      0.      0.      1.
+                   16-        CBEAM   16      16      16      17      0.      0.      1.
+                   17-        CBEAM   17      17      17      18      0.      0.      1.
+                   18-        CBEAM   18      18      18      19      0.      0.      1.
+                   19-        CBEAM   19      19      19      20      0.      0.      1.
+                   20-        CBEAM   20      20      20      21      0.      0.      1.
+                   21-        CBEAM   21      21      21      22      0.      0.      1.
+                   22-        CBEAM   22      22      22      23      0.      0.      1.
+                   23-        CBEAM   23      23      23      24      0.      0.      1.
+                   24-        CBEAM   24      24      24      25      0.      0.      1.
+                   25-        CBEAM   25      25      25      26      0.      0.      1.
+                   26-        CONM1   10001   1               .015673         .015673                 +
+                   27-        +       .015673                                                 -1.07518+
+                   28-        +               3090.135
+                   29-        CONM1   10002   2               .0270982        .0270982                +
+                   30-        +       .0270982                                                -1.8795 +
+                   31-        +               5846.591
+                   32-        CONM1   10003   3               .069217         .069217                 +
+                   33-        +       .069217                                                 -3.79952+
+                   34-        +               5780.728
+                   35-        CONM1   10004   4               .0984514        .0984514                +
+                   36-        +       .0984514                                                -4.84795+
+                   37-        +               5150.762
+                   38-        CONM1   10005   5               .098316         .098316                 +
+                   39-        +       .098316                                                 -6.54063+
+                   40-        +               5252.542
+                   41-        CONM1   10006   6               .0970788        .0970788                +
+                   42-        +       .0970788                                                -6.24101+
+                   43-        +               5084.367
+                   44-        CONM1   10007   7               .0948149        .0948149                +
+                   45-        +       .0948149                                                -2.44718+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    12
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                   46-        +               4571.237
+                   47-        CONM1   10008   8               .6826016        .6826016                +
+                   48-        +       .6826016                                                621.0874+
+                   49-        +               669149.9
+                   50-        CONM1   10009   9               .0710291        .0710291                +
+                   51-        +       .0710291                                                -4.9738 +
+                   52-        +               3651.116
+                   53-        CONM1   10010   10              .0807891        .0807891                +
+                   54-        +       .0807891                                                -6.22344+
+                   55-        +               4212.744
+                   56-        CONM1   10011   11              .0833519        .0833519                +
+                   57-        +       .0833519                                                -5.51442+
+                   58-        +               4081.079
+                   59-        CONM1   10012   12              .0796087        .0796087                +
+                   60-        +       .0796087                                                -4.22591+
+                   61-        +               3750.534
+                   62-        CONM1   10013   13              .0704491        .0704491                +
+                   63-        +       .0704491                                                -2.79193+
+                   64-        +               3314.268
+                   65-        CONM1   10014   14              .0649882        .0649882                +
+                   66-        +       .0649882                                                -1.92282+
+                   67-        +               2912.124
+                   68-        CONM1   10015   15              .0590311        .0590311                +
+                   69-        +       .0590311                                                -1.74646+
+                   70-        +               2554.382
+                   71-        CONM1   10016   16              .0534615        .0534615                +
+                   72-        +       .0534615                                                -2.11074+
+                   73-        +               2267.008
+                   74-        CONM1   10017   17              .0455491        .0455491                +
+                   75-        +       .0455491                                                -2.52952+
+                   76-        +               1920.18
+                   77-        CONM1   10018   18              .0387729        .0387729                +
+                   78-        +       .0387729                                                -1.87072+
+                   79-        +               1553.483
+                   80-        CONM1   10019   19              .0348417        .0348417                +
+                   81-        +       .0348417                                                -2.08429+
+                   82-        +               1383.484
+                   83-        CONM1   10020   20              .0346753        .0346753                +
+                   84-        +       .0346753                                                -2.039  +
+                   85-        +               1409.284
+                   86-        CONM1   10021   21              .0315098        .0315098                +
+                   87-        +       .0315098                                                -1.87726+
+                   88-        +               1359.65
+                   89-        CONM1   10022   22              .0283898        .0283898                +
+                   90-        +       .0283898                                                -1.73669+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    13
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                   91-        +               1170.768
+                   92-        CONM1   10023   23              .0248434        .0248434                +
+                   93-        +       .0248434                                                -1.58964+
+                   94-        +               978.0445
+                   95-        CONM1   10024   24              .0147928        .0147928                +
+                   96-        +       .0147928                                                -.911364+
+                   97-        +               788.599
+                   98-        CONM1   10025   25              .0055903        .0055903                +
+                   99-        +       .0055903                                                -.415372+
+                  100-        +               586.2883
+                  101-        CONM1   10026   26              .0029017        .0029017                +
+                  102-        +       .0029017                                                -.211446+
+                  103-        +               255.1062
+                  104-        EIGRL   5                       12                              MAX
+                  105-        GRID    1               1235.6080.      0.
+                  106-        GRID    2               1232.697414.65190.
+                  107-        GRID    3               1231.348829.30380.
+                  108-        GRID    4               1228.1471196.1240.
+                  109-        GRID    5               1227.6631562.9430.
+                  110-        GRID    6               1227.6951929.7630.
+                  111-        GRID    7               1226.7  2296.5830.
+                  112-        GRID    8               1225.8  2663.4030.
+                  113-        GRID    9               1225.   2943.2780.
+                  114-        GRID    10              1224.2713223.1530.
+                  115-        GRID    11              1220.6033582.4940.
+                  116-        GRID    12              1216.93 3941.8360.
+                  117-        GRID    13              1213.2534307.61 0.
+                  118-        GRID    14              1210.0224673.3840.
+                  119-        GRID    15              1195.3745039.1580.
+                  120-        GRID    16              1170.8035404.9320.
+                  121-        GRID    17              1151.3635770.7060.
+                  122-        GRID    18              1135.0566091.7940.
+                  123-        GRID    19              1120.4756412.8820.
+                  124-        GRID    20              1107.3856733.97 0.
+                  125-        GRID    21              1091.7057096.8590.
+                  126-        GRID    22              1080.5267459.7480.
+                  127-        GRID    23              1069.6577822.6360.
+                  128-        GRID    24              1059.1338185.5250.
+                  129-        GRID    25              1049.5368531.7670.
+                  130-        GRID    26              1040.47 8878.01 0.
+                  131-        GRID    27              0.      0.      0.
+                  132-        GRID    28              2441.2470.      0.
+                  133-        GRID    29              0.      414.65190.
+                  134-        GRID    30              2441.247414.65190.
+                  135-        GRID    31              0.      829.30380.
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    14
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  136-        GRID    32              2441.247829.30380.
+                  137-        GRID    33              12.809631196.1240.
+                  138-        GRID    34              2438.9311196.1240.
+                  139-        GRID    35              25.619261562.9430.
+                  140-        GRID    36              2436.6141562.9430.
+                  141-        GRID    37              38.428891929.7630.
+                  142-        GRID    38              2434.2981929.7630.
+                  143-        GRID    39              51.238522296.5830.
+                  144-        GRID    40              2431.9822296.5830.
+                  145-        GRID    41              64.048152663.4030.
+                  146-        GRID    42              2429.6662663.4030.
+                  147-        GRID    43              73.8216 2943.2780.
+                  148-        GRID    44              2427.8982943.2780.
+                  149-        GRID    45              83.595043223.1530.
+                  150-        GRID    46              2426.1313223.1530.
+                  151-        GRID    47              119.84223582.4940.
+                  152-        GRID    48              2377.2673582.4940.
+                  153-        GRID    49              156.08943941.8360.
+                  154-        GRID    50              2328.4033941.8360.
+                  155-        GRID    51              192.98544307.61 0.
+                  156-        GRID    52              2278.6654307.61 0.
+                  157-        GRID    53              229.88144673.3840.
+                  158-        GRID    54              2228.9264673.3840.
+                  159-        GRID    55              266.77745039.1580.
+                  160-        GRID    56              2179.1885039.1580.
+                  161-        GRID    57              303.67345404.9320.
+                  162-        GRID    58              2129.4495404.9320.
+                  163-        GRID    59              340.56945770.7060.
+                  164-        GRID    60              2079.71 5770.7060.
+                  165-        GRID    61              372.95786091.7940.
+                  166-        GRID    62              2036.0486091.7940.
+                  167-        GRID    63              405.34636412.8820.
+                  168-        GRID    64              1992.3866412.8820.
+                  169-        GRID    65              437.73486733.97 0.
+                  170-        GRID    66              1948.7246733.97 0.
+                  171-        GRID    67              474.33977096.8590.
+                  172-        GRID    68              1899.3787096.8590.
+                  173-        GRID    69              510.94477459.7480.
+                  174-        GRID    70              1850.0327459.7480.
+                  175-        GRID    71              547.54967822.6360.
+                  176-        GRID    72              1800.6867822.6360.
+                  177-        GRID    73              584.15468185.5250.
+                  178-        GRID    74              1751.3398185.5250.
+                  179-        GRID    75              619.08048531.7670.
+                  180-        GRID    76              1704.2578531.7670.
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    15
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  181-        GRID    77              654.00628878.01 0.
+                  182-        GRID    78              1657.1748878.01 0.
+                  183-        MAT1    1       72397.5 27000.  .32     1E-16
+                  184-        PARAM   OMODES  ALL
+                  185-        PARAM   POST    -1
+                  186-        PARAM   PRTMAXIMYES
+                  187-        PARAM   WTMASS  1.
+                  188-        PBEAM   1       1       12021.273.5057+81.175+9         6.6245+8
+                  189-        PBEAM   2       1       10733.973.1467+81.0523+9        5.9788+8
+                  190-        PBEAM   3       1       9559.6682.8026+89.387+8         5.3527+8
+                  191-        PBEAM   4       1       8523.8192.4884+88.3619+8        4.7527+8
+                  192-        PBEAM   5       1       7661.1362.2378+87.4613+8        4.1939+8
+                  193-        PBEAM   6       1       6888.3832.0098+86.6548+8        3.7025+8
+                  194-        PBEAM   7       1       6219.0951.8072+85.9685+8        3.3004+8
+                  195-        PBEAM   8       1       5594.1661.5936+85.5293+8        3.14+8
+                  196-        PBEAM   9       1       5159.5361.4406+85.2598+8        3.0773+8
+                  197-        PBEAM   10      1       4771.1751.2633+84.6959+8        2.7189+8
+                  198-        PBEAM   11      1       4263.41 1.012+8 3.929+8         2.2266+8
+                  199-        PBEAM   12      1       3769.6897.9662+73.2447+8        1.7932+8
+                  200-        PBEAM   13      1       3285.0636.1302+72.6341+8        1.4129+8
+                  201-        PBEAM   14      1       2835.7064.6281+72.1203+8        1.0969+8
+                  202-        PBEAM   15      1       2431.3973.4274+71.7046+8        8.4317+7
+                  203-        PBEAM   16      1       2104.42 2.565+7 1.3816+8        6.5317+7
+                  204-        PBEAM   17      1       1847.4841.9969+71.1355+8        5.2278+7
+                  205-        PBEAM   18      1       1642.6131.5877+79.4523+7        4.2616+7
+                  206-        PBEAM   19      1       1494.0861.2732+77.9738+7        3.485+7
+                  207-        PBEAM   20      1       1350.9159951566.6.6262+7        2.7834+7
+                  208-        PBEAM   21      1       1235.64 7711426.5.479+7         2.1949+7
+                  209-        PBEAM   22      1       1162.68 6104576.4.5958+7        1.7633+7
+                  210-        PBEAM   23      1       1090.3534758000.3.8169+7        1.3974+7
+                  211-        PBEAM   24      1       1020.2673664865.3.1488+7        1.096+7
+                  212-        PBEAM   25      1       952.31772786340.2.5788+7        8505260.
+                  213-        RBE2    151     1       123456  27
+                  214-        RBE2    152     2       123456  29
+                  215-        RBE2    153     3       123456  31
+                  216-        RBE2    154     4       123456  33
+                  217-        RBE2    155     5       123456  35
+                  218-        RBE2    156     6       123456  37
+                  219-        RBE2    157     7       123456  39
+                  220-        RBE2    158     8       123456  41
+                  221-        RBE2    159     9       123456  43
+                  222-        RBE2    160     10      123456  45
+                  223-        RBE2    161     11      123456  47
+                  224-        RBE2    162     12      123456  49
+                  225-        RBE2    163     13      123456  51
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    16
+                                                                                                                                    
+0                                                                                                                                   
+                                                  S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                  226-        RBE2    164     14      123456  53
+                  227-        RBE2    165     15      123456  55
+                  228-        RBE2    166     16      123456  57
+                  229-        RBE2    167     17      123456  59
+                  230-        RBE2    168     18      123456  61
+                  231-        RBE2    169     19      123456  63
+                  232-        RBE2    170     20      123456  65
+                  233-        RBE2    171     21      123456  67
+                  234-        RBE2    172     22      123456  69
+                  235-        RBE2    173     23      123456  71
+                  236-        RBE2    174     24      123456  73
+                  237-        RBE2    175     25      123456  75
+                  238-        RBE2    176     26      123456  77
+                  239-        RBE2    178     1       123456  28
+                  240-        RBE2    179     2       123456  30
+                  241-        RBE2    180     3       123456  32
+                  242-        RBE2    181     4       123456  34
+                  243-        RBE2    182     5       123456  36
+                  244-        RBE2    183     6       123456  38
+                  245-        RBE2    184     7       123456  40
+                  246-        RBE2    185     8       123456  42
+                  247-        RBE2    186     9       123456  44
+                  248-        RBE2    187     10      123456  46
+                  249-        RBE2    188     11      123456  48
+                  250-        RBE2    189     12      123456  50
+                  251-        RBE2    190     13      123456  52
+                  252-        RBE2    191     14      123456  54
+                  253-        RBE2    192     15      123456  56
+                  254-        RBE2    193     16      123456  58
+                  255-        RBE2    194     17      123456  60
+                  256-        RBE2    195     18      123456  62
+                  257-        RBE2    196     19      123456  64
+                  258-        RBE2    197     20      123456  66
+                  259-        RBE2    198     21      123456  68
+                  260-        RBE2    199     22      123456  70
+                  261-        RBE2    200     23      123456  72
+                  262-        RBE2    201     24      123456  74
+                  263-        RBE2    202     25      123456  76
+                  264-        RBE2    203     26      123456  78
+                  265-        SPC1    50      123456  1       2       3
+                              ENDDATA
+                        TOTAL COUNT= 266
+                              INPUT BULK DATA ENTRY COUNT = 271
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    17
+                                                                                                                                    
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                        CBEAM                       25
+                                        CONM1                       26
+                                        EIGRL                        1
+                                         GRID                       78
+                                         MAT1                        1
+                                        PARAM                        4
+                                        PBEAM                       25
+                                         RBE2                       52
+                                         SPC1                        1
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+ *** USER INFORMATION MESSAGE 4109 (OUTPX2)
+     THE LABEL IS XXXXXXXX FOR FORTRAN UNIT 12
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          7 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          8 RECORDS.)
+                (TOTAL DATA WRITTEN FOR LABEL =         17 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM1X   WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM168, TRL =
+                    101                 0                 0                 8                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM1   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         627 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         658 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM2X   WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM201, TRL =
+                    102                 4                 0                 0              1024                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM2   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         627 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =        1115 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM4X   WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM4705, TRL =
+                    104                 0                 0                 0                64              2048                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM4   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         263 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         308 WORDS.)
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    18
+                                                                                                                                    
+0                                                                                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK EPTX     WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR EPT01, TRL =
+                    105                 0                 0                 0              1024                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS EPT     
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =        4928 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =        4959 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK MPTS     WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR MPT, TRL =
+                    101             32768                 0                 0                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS MPT     
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          15 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          46 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK DYNAMICS WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR DYNAMICS, TRL =
+                    103               256                 0                 0                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS DYNAMICS
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          30 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          61 WORDS.)
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    19
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM IN SUPERELEMENT OR MODULE
+     BASIC SYSTEM COORDINATES.
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE = 3.292793D+03, CYCLES = 9.132767D+00 THE STURM COUNT = 2
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE = 2.150485D+05, CYCLES = 7.380544D+01 THE STURM COUNT = 12
+
+ TABLE OF SHIFTS:  (LNNRIGL)
+ SHIFT #        SHIFT VALUE         FREQUENCY, CYCLES     # EIGENVALUES BELOW    # NEW EIGENVALUES FOUND
+     1.        3.2927933E+03          9.1327667E+00                 2                       14
+     2.        2.1504852E+05          7.3805438E+01                12                        0
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    20
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0
+
+
+                          E I G E N V A L U E  A N A L Y S I S   S U M M A R Y   (READ MODULE) 
+
+
+
+                                     BLOCK SIZE USED ......................     7
+
+                                     NUMBER OF DECOMPOSITIONS .............     2
+
+                                     NUMBER OF ROOTS FOUND ................    12
+
+                                     NUMBER OF SOLVES REQUIRED ............     8
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    21
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                              R E A L   E I G E N V A L U E S
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        4.193135E+02        2.047714E+01        3.259039E+00        1.009403E-01        4.232563E+01
+        2         2        1.534839E+03        3.917702E+01        6.235216E+00        1.212966E-01        1.861707E+02
+        3         3        3.657347E+03        6.047601E+01        9.625055E+00        6.551950E-02        2.396276E+02
+        4         4        8.033314E+03        8.962875E+01        1.426486E+01        1.215904E-01        9.767736E+02
+        5         5        1.592122E+04        1.261793E+02        2.008206E+01        7.476617E-02        1.190368E+03
+        6         6        2.360058E+04        1.536248E+02        2.445015E+01        3.966191E-02        9.360440E+02
+        7         7        5.342919E+04        2.311475E+02        3.678827E+01        9.644986E-02        5.153238E+03
+        8         8        6.492436E+04        2.548026E+02        4.055309E+01        6.003415E-02        3.897679E+03
+        9         9        7.341532E+04        2.709526E+02        4.312345E+01        3.814225E-02        2.800225E+03
+       10        10        1.122872E+05        3.350928E+02        5.333167E+01        3.801376E-01        4.268458E+04
+       11        11        1.649604E+05        4.061532E+02        6.464129E+01        2.533252E-02        4.178863E+03
+       12        12        2.058117E+05        4.536647E+02        7.220298E+01        4.012779E-02        8.258767E+03
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    22
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                       M O D A L   E F F E C T I V E   M A S S   S U M M A R Y
+
+
+
+                                                    TOTAL EFFECTIVE MASS FRACTION
+                                         REFERENCE POINT AT ORIGIN OF BASIC COORDINATE SYSTEM
+
+
+                        T1                T2                T3                R1                R2                R3
+                   9.134163E-01      6.962884E-01      9.055159E-01      9.898803E-01      8.567452E-01      9.642390E-01
+
+
+
+
+                                                        EFFECTIVE MASS MATRIX   
+                       ***                                                                                  ***
+                       *   1.731690E+00 -2.450348E-03  5.368279E-11  5.967209E-08 -3.608567E-08 -6.357633E+03 *
+                       *  -2.450348E-03  1.320050E+00  2.520537E-12  9.045994E-09 -9.280752E-09  1.581752E+03 *
+                       *   5.368279E-11  2.520537E-12  1.716712E+00  6.327287E+03 -1.499098E+03 -8.215944E-08 *
+                       *   5.967209E-08  9.045994E-09  6.327287E+03  2.762593E+07 -6.084383E+06 -8.486048E-05 *
+                       *  -3.608567E-08 -9.280752E-09 -1.499098E+03 -6.084383E+06  1.815157E+06  4.767649E-05 *
+                       *  -6.357633E+03  1.581752E+03 -8.215944E-08 -8.486048E-05  4.767649E-05  2.957085E+07 *
+                       ***                                                                                  ***
+
+                                                     A-SET RIGID BODY MASS MATRIX
+                       ***                                                                                  ***
+                       *   1.895838E+00  4.338735E-27  0.000000E+00  0.000000E+00  0.000000E+00 -6.550297E+03 *
+                       *   4.338735E-27  1.895838E+00  0.000000E+00  0.000000E+00  0.000000E+00  2.285735E+03 *
+                       *   0.000000E+00  0.000000E+00  1.895838E+00  6.550297E+03 -1.729499E+03  0.000000E+00 *
+                       *   0.000000E+00  0.000000E+00  6.550297E+03  2.790835E+07 -6.371878E+06  0.000000E+00 *
+                       *   0.000000E+00  0.000000E+00 -1.729499E+03 -6.371878E+06  2.118666E+06  0.000000E+00 *
+                       *  -6.550297E+03  2.285735E+03  0.000000E+00  0.000000E+00  0.000000E+00  3.066755E+07 *
+                       ***                                                                                  ***
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    23
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                    MODAL EFFECTIVE MASS FRACTION
+                                                (FOR TRANSLATIONAL DEGREES OF FREEDOM)
+
+    MODE    FREQUENCY                      T1                                  T2                                  T3
+     NO.                        FRACTION            SUM             FRACTION            SUM             FRACTION            SUM
+
+       1    3.259039E+00      1.270057E-29      1.270057E-29      5.934973E-32      5.934973E-32      3.564331E-01      3.564331E-01
+       2    6.235216E+00      3.916904E-01      3.916904E-01      1.470627E-04      1.470627E-04      3.904648E-30      3.564331E-01
+       3    9.625055E+00      3.953018E-37      3.916904E-01      8.998900E-37      1.470627E-04      3.623914E-01      7.188244E-01
+       4    1.426486E+01      5.268921E-30      3.916904E-01      8.734079E-33      1.470627E-04      7.822146E-02      7.970459E-01
+       5    2.008206E+01      3.306184E-01      7.223088E-01      1.506210E-04      2.976836E-04      4.311399E-30      7.970459E-01
+       6    2.445015E+01      1.967326E-28      7.223088E-01      5.226127E-30      2.976836E-04      4.312055E-02      8.401664E-01
+       7    3.678827E+01      5.466364E-28      7.223088E-01      1.987008E-27      2.976836E-04      7.743947E-03      8.479104E-01
+       8    4.055309E+01      1.584676E-01      8.807764E-01      3.867027E-04      6.843863E-04      2.403796E-29      8.479104E-01
+       9    4.312345E+01      3.796149E-27      8.807764E-01      2.162598E-26      6.843863E-04      3.233766E-02      8.802480E-01
+      10    5.333167E+01      3.351714E-04      8.811115E-01      6.929626E-01      6.936470E-01      1.313258E-23      8.802480E-01
+      11    6.464129E+01      4.245256E-22      8.811115E-01      2.136274E-21      6.936470E-01      2.526790E-02      9.055159E-01
+      12    7.220298E+01      3.230482E-02      9.134163E-01      2.641363E-03      6.962884E-01      3.075051E-20      9.055159E-01
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    24
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                    MODAL EFFECTIVE MASS FRACTION
+                                                 (FOR ROTATIONAL DEGREES OF FREEDOM)
+
+    MODE    FREQUENCY                      R1                                  R2                                  R3
+     NO.                        FRACTION            SUM             FRACTION            SUM             FRACTION            SUM
+
+       1    3.259039E+00      7.575907E-01      7.575907E-01      3.760173E-01      3.760173E-01      1.260711E-29      1.260711E-29
+       2    6.235216E+00      7.167039E-30      7.575907E-01      2.424812E-30      3.760173E-01      7.180098E-01      7.180098E-01
+       3    9.625055E+00      1.895538E-01      9.471445E-01      1.891157E-01      5.651331E-01      8.615026E-35      7.180098E-01
+       4    1.426486E+01      1.349133E-02      9.606358E-01      2.823693E-02      5.933700E-01      1.987511E-30      7.180098E-01
+       5    2.008206E+01      1.375133E-32      9.606358E-01      6.021136E-29      5.933700E-01      1.416075E-01      8.596173E-01
+       6    2.445015E+01      1.593554E-02      9.765713E-01      1.417033E-01      7.350732E-01      9.972103E-29      8.596173E-01
+       7    3.678827E+01      1.526516E-03      9.780979E-01      1.059840E-02      7.456716E-01      5.077934E-28      8.596173E-01
+       8    4.055309E+01      4.646022E-29      9.780979E-01      9.358706E-28      7.456716E-01      3.683881E-02      8.964561E-01
+       9    4.312345E+01      7.437367E-03      9.855352E-01      6.812196E-02      8.137936E-01      5.504139E-27      8.964561E-01
+      10    5.333167E+01      1.261675E-24      9.855352E-01      3.009631E-24      8.137936E-01      6.063379E-02      9.570899E-01
+      11    6.464129E+01      4.345053E-03      9.898803E-01      4.295155E-02      8.567452E-01      3.975844E-22      9.570899E-01
+      12    7.220298E+01      2.816980E-21      9.898803E-01      1.531409E-20      8.567452E-01      7.149086E-03      9.642390E-01
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    25
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                     MODAL PARTICIPATION FACTORS
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    3.259039E+00      4.906956E-15      3.354363E-16      8.220337E-01      4.598163E+03     -8.925555E+02     -1.966289E-11
+       2    6.235216E+00      8.617318E-01      1.669751E-02     -2.720768E-15     -1.414285E-11      2.266576E-12     -4.692505E+03
+       3    9.625055E+00      8.656952E-19      1.306157E-18     -8.288760E-01     -2.300029E+03      6.329875E+02      5.140056E-14
+       4    1.426486E+01      3.160541E-15      1.286795E-16      3.850912E-01      6.136130E+02      2.445907E+02     -7.807183E-12
+       5    2.008206E+01     -7.917063E-01      1.689831E-02     -2.858971E-15     -6.194973E-13      1.129459E-11      2.083928E+03
+       6    2.445015E+01     -1.931251E-14      3.147680E-15      2.859189E-01      6.668843E+02     -5.479251E+02      5.530099E-11
+       7    3.678827E+01      3.219214E-14     -6.137626E-14     -1.211663E-01     -2.064039E+02      1.498482E+02     -1.247909E-10
+       8    4.055309E+01      5.481139E-01     -2.707630E-02     -6.750710E-15     -3.600872E-11      4.452861E-11     -1.062900E+03
+       9    4.312345E+01     -8.483445E-14      2.024830E-13     -2.476025E-01     -4.555926E+02      3.799049E+02      4.108509E-10
+      10    5.333167E+01      2.520775E-02      1.146187E+00      4.989714E-12      5.933907E-09     -2.525154E-09      1.363631E+03
+      11    6.464129E+01     -2.836956E-11      6.363985E-11      2.188695E-01      3.482287E+02     -3.016621E+02      1.104216E-07
+      12    7.220298E+01     -2.474767E-01      7.076438E-02     -2.414498E-10     -2.803877E-07      1.801262E-07      4.682360E+02
+
+                  TOTAL       3.958704E-01      1.223471E+00      5.142685E-01      3.264864E+03     -3.348114E+02     -1.839610E+03
+
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    26
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                         MODAL EFFECTIVE MASS   
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    3.259039E+00      2.407822E-29      1.125175E-31      6.757394E-01      2.114311E+07      7.966553E+05      3.866291E-22
+       2    6.235216E+00      7.425816E-01      2.788070E-04      7.402581E-30      2.000202E-22      5.137367E-24      2.201960E+07
+       3    9.625055E+00      7.494282E-37      1.706046E-36      6.870354E-01      5.290133E+06      4.006732E+05      2.642017E-27
+       4    1.426486E+01      9.989021E-30      1.655840E-32      1.482952E-01      3.765209E+05      5.982463E+04      6.095211E-23
+       5    2.008206E+01      6.267989E-01      2.855530E-04      8.173716E-30      3.837769E-25      1.275678E-22      4.342756E+06
+       6    2.445015E+01      3.729731E-28      9.907890E-30      8.174959E-02      4.447347E+05      3.002220E+05      3.058200E-21
+       7    3.678827E+01      1.036334E-27      3.767045E-27      1.468127E-02      4.260255E+04      2.245448E+04      1.557278E-20
+       8    4.055309E+01      3.004289E-01      7.331258E-04      4.557209E-29      1.296628E-21      1.982798E-21      1.129756E+06
+       9    4.312345E+01      7.196884E-27      4.099937E-26      6.130698E-02      2.075646E+05      1.443277E+05      1.687985E-19
+      10    5.333167E+01      6.354308E-04      1.313745E+00      2.489725E-23      3.521126E-17      6.376404E-18      1.859490E+06
+      11    6.464129E+01      8.048319E-22      4.050030E-21      4.790385E-02      1.212632E+05      9.100001E+04      1.219294E-14
+      12    7.220298E+01      6.124470E-02      5.007597E-03      5.829799E-20      7.861726E-14      3.244544E-14      2.192450E+05
+
+                  TOTAL       1.731690E+00      1.320050E+00      1.716712E+00      2.762593E+07      1.815157E+06      2.957085E+07
+
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    27
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                        MODAL EFFECTIVE WEIGHT  
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    3.259039E+00      2.407822E-29      1.125175E-31      6.757394E-01      2.114311E+07      7.966553E+05      3.866291E-22
+       2    6.235216E+00      7.425816E-01      2.788070E-04      7.402581E-30      2.000202E-22      5.137367E-24      2.201960E+07
+       3    9.625055E+00      7.494282E-37      1.706046E-36      6.870354E-01      5.290133E+06      4.006732E+05      2.642017E-27
+       4    1.426486E+01      9.989021E-30      1.655840E-32      1.482952E-01      3.765209E+05      5.982463E+04      6.095211E-23
+       5    2.008206E+01      6.267989E-01      2.855530E-04      8.173716E-30      3.837769E-25      1.275678E-22      4.342756E+06
+       6    2.445015E+01      3.729731E-28      9.907890E-30      8.174959E-02      4.447347E+05      3.002220E+05      3.058200E-21
+       7    3.678827E+01      1.036334E-27      3.767045E-27      1.468127E-02      4.260255E+04      2.245448E+04      1.557278E-20
+       8    4.055309E+01      3.004289E-01      7.331258E-04      4.557209E-29      1.296628E-21      1.982798E-21      1.129756E+06
+       9    4.312345E+01      7.196884E-27      4.099937E-26      6.130698E-02      2.075646E+05      1.443277E+05      1.687985E-19
+      10    5.333167E+01      6.354308E-04      1.313745E+00      2.489725E-23      3.521126E-17      6.376404E-18      1.859490E+06
+      11    6.464129E+01      8.048319E-22      4.050030E-21      4.790385E-02      1.212632E+05      9.100001E+04      1.219294E-14
+      12    7.220298E+01      6.124470E-02      5.007597E-03      5.829799E-20      7.861726E-14      3.244544E-14      2.192450E+05
+
+                  TOTAL       1.731690E+00      1.320050E+00      1.716712E+00      2.762593E+07      1.815157E+06      2.957085E+07
+
+
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    28
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM IN SUPERELEMENT OR MODULE
+     BASIC SYSTEM COORDINATES.
+0                                                  SPCFORCE RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    1.157569E-11     ----          ----          ----       0.000000E+00 -9.599763E-09                             
+               FY       ----      -8.203905E-11     ----       0.000000E+00     ----      -1.010186E-07                             
+               FZ       ----          ----      -1.095118E+02 -9.081852E+04  1.348471E+05     ----                                  
+               MX       ----          ----          ----      -5.217512E+05     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.594038E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----       2.598885E-08                             
+             TOTALS  1.157569E-11 -8.203905E-11 -1.095118E+02 -6.125697E+05  1.189067E+05 -8.462954E-08
+0        2     FX   -4.606373E+02     ----          ----          ----       0.000000E+00  3.820083E+05                             
+               FY       ----      -8.925630E+00     ----       0.000000E+00     ----      -1.099056E+04                             
+               FZ       ----          ----      -2.352613E-13 -1.951031E-10  2.896885E-10     ----                                  
+               MX       ----          ----          ----      -6.081623E-10     ----          ----                                  
+               MY       ----          ----          ----          ----       2.964316E-09     ----                                  
+               MZ       ----          ----          ----          ----          ----       2.137353E+06                             
+             TOTALS -4.606373E+02 -8.925630E+00 -2.352613E-13 -8.032654E-10  3.254004E-09  2.508371E+06
+0        3     FX   -1.761790E-13     ----          ----          ----       0.000000E+00  1.461059E-10                             
+               FY       ----      -6.145172E-14     ----       0.000000E+00     ----      -7.566845E-11                             
+               FZ       ----          ----       7.759631E+02  6.435091E+05 -9.554806E+05     ----                                  
+               MX       ----          ----          ----       1.509693E+06     ----          ----                                  
+               MY       ----          ----          ----          ----       3.629011E+05     ----                                  
+               MZ       ----          ----          ----          ----          ----       1.680494E-10                             
+             TOTALS -1.761790E-13 -6.145172E-14  7.759631E+02  2.153202E+06 -5.925795E+05  2.384868E-10
+0        4     FX   -3.009806E-11     ----          ----          ----       0.000000E+00  2.496043E-08                             
+               FY       ----      -9.241333E-12     ----       0.000000E+00     ----      -1.137930E-08                             
+               FZ       ----          ----      -1.078718E+03 -8.945849E+05  1.328277E+06     ----                                  
+               MX       ----          ----          ----      -8.242685E+05     ----          ----                                  
+               MY       ----          ----          ----          ----      -2.013425E+06     ----                                  
+               MZ       ----          ----          ----          ----          ----       3.931474E-08                             
+             TOTALS -3.009806E-11 -9.241333E-12 -1.078718E+03 -1.718853E+06 -6.851479E+05  5.289588E-08
+0        5     FX    3.446617E+03     ----          ----          ----       0.000000E+00 -2.858292E+06                             
+               FY       ----      -7.356516E+01     ----       0.000000E+00     ----      -9.058431E+04                             
+               FZ       ----          ----       3.456084E-11  2.866144E-08 -4.255642E-08     ----                                  
+               MX       ----          ----          ----       5.548842E-08     ----          ----                                  
+               MY       ----          ----          ----          ----      -3.571975E-08     ----                                  
+               MZ       ----          ----          ----          ----          ----      -6.123301E+06                             
+             TOTALS  3.446617E+03 -7.356516E+01  3.456084E-11  8.414986E-08 -7.827618E-08 -9.072178E+06
+0        6     FX    1.886808E-11     ----          ----          ----       0.000000E+00 -1.564737E-08                             
+               FY       ----      -1.593746E-10     ----       0.000000E+00     ----      -1.962456E-07                             
+               FZ       ----          ----      -1.343855E+03 -1.114464E+06  1.654753E+06     ----                                  
+               MX       ----          ----          ----      -2.019976E+06     ----          ----                                  
+               MY       ----          ----          ----          ----       9.205644E+05     ----                                  
+               MZ       ----          ----          ----          ----          ----      -8.597408E-08                             
+             TOTALS  1.886808E-11 -1.593746E-10 -1.343855E+03 -3.134440E+06  2.575317E+06 -2.978670E-07
+0        7     FX   -1.166780E-08     ----          ----          ----       0.000000E+00  9.676148E-06                             
+               FY       ----       1.044763E-08     ----       0.000000E+00     ----       1.286467E-05                             
+               FZ       ----          ----       2.010533E+03  1.667343E+06 -2.475666E+06     ----                                  
+               MX       ----          ----          ----       1.757552E+06     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.079057E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----       3.912107E-06                             
+             TOTALS -1.166780E-08  1.044763E-08  2.010533E+03  3.424894E+06 -2.486456E+06  2.645292E-05
+0        8     FX   -8.719222E+03     ----          ----          ----       0.000000E+00  7.230884E+06                             
+               FY       ----       4.307211E+02     ----       0.000000E+00     ----       5.303675E+05                             
+               FZ       ----          ----      -1.589532E-08 -1.318205E-05  1.957267E-05     ----                                  
+               MX       ----          ----          ----      -7.289217E-06     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.352143E-05     ----                                  
+               MZ       ----          ----          ----          ----          ----       9.147020E+06                             
+             TOTALS -8.719222E+03  4.307211E+02 -1.589532E-08 -2.047126E-05  6.051238E-06  1.690827E+07
+0        9     FX   -1.230752E-08     ----          ----          ----       0.000000E+00  1.020667E-05                             
+               FY       ----      -3.222109E-08     ----       0.000000E+00     ----      -3.967538E-05                             
+               FZ       ----          ----       3.550135E+03  2.944140E+06 -4.371451E+06     ----                                  
+               MX       ----          ----          ----       3.588166E+06     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.075641E+06     ----                                  
+               MZ       ----          ----          ----          ----          ----       4.633587E-07                             
+             TOTALS -1.230752E-08 -3.222109E-08  3.550135E+03  6.532306E+06 -5.447092E+06 -2.900535E-05
+0       10     FX   -1.745158E+03     ----          ----          ----       0.000000E+00  1.447266E+06                             
+               FY       ----      -7.935168E+04     ----       0.000000E+00     ----      -9.770953E+07                             
+               FZ       ----          ----      -9.396771E-06 -7.792778E-03  1.157069E-02     ----                                  
+               MX       ----          ----          ----      -3.396197E-03     ----          ----                                  
+               MY       ----          ----          ----          ----      -5.299825E-03     ----                                  
+               MZ       ----          ----          ----          ----          ----       1.856723E+06                             
+             TOTALS -1.745158E+03 -7.935168E+04 -9.396771E-06 -1.118897E-02  6.270870E-03 -9.440554E+07
+0       11     FX    1.125624E-05     ----          ----          ----       0.000000E+00 -9.334839E-03                             
+               FY       ----      -3.064366E-05     ----       0.000000E+00     ----      -3.773301E-02                             
+               FZ       ----          ----      -5.746509E+03 -4.765602E+06  7.075953E+06     ----                                  
+               MX       ----          ----          ----      -4.377288E+06     ----          ----                                  
+               MY       ----          ----          ----          ----       8.443112E+05     ----                                  
+               MZ       ----          ----          ----          ----          ----      -4.280268E-03                             
+             TOTALS  1.125624E-05 -3.064366E-05 -5.746509E+03 -9.142890E+06  7.920264E+06 -5.134812E-02
+0       12     FX    1.020298E+04     ----          ----          ----       0.000000E+00 -8.461367E+06                             
+               FY       ----      -2.917476E+03     ----       0.000000E+00     ----      -3.592428E+06                             
+               FZ       ----          ----       1.313607E-04  1.089379E-01 -1.617507E-01     ----                                  
+               MX       ----          ----          ----       4.848290E-02     ----          ----                                  
+               MY       ----          ----          ----          ----       5.148749E-02     ----                                  
+               MZ       ----          ----          ----          ----          ----      -7.250654E+06                             
+             TOTALS  1.020298E+04 -2.917476E+03  1.313607E-04  1.574208E-01 -1.102632E-01 -1.930445E+07
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    29
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0                                                  MAXIMUM  SPCFORCES       
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   1.1575690E-11  8.2039053E-11  1.0951176E+02  5.2175120E+05  1.5940377E+04  2.5988847E-08
+0        2   4.6063732E+02  8.9256296E+00  2.3526130E-13  6.0816229E-10  2.9643158E-09  2.1373532E+06
+0        3   1.7617895E-13  6.1451720E-14  7.7596308E+02  1.5096930E+06  3.6290108E+05  1.6804938E-10
+0        4   3.0098056E-11  9.2413327E-12  1.0787179E+03  8.2426852E+05  2.0134251E+06  3.9314740E-08
+0        5   3.4466166E+03  7.3565160E+01  3.4560842E-11  5.5488424E-08  3.5719752E-08  6.1233013E+06
+0        6   1.8868080E-11  1.5937458E-10  1.3438546E+03  2.0199764E+06  9.2056441E+05  8.5974082E-08
+0        7   1.1667796E-08  1.0447630E-08  2.0105329E+03  1.7575517E+06  1.0790570E+04  3.9121069E-06
+0        8   8.7192218E+03  4.3072107E+02  1.5895316E-08  7.2892166E-06  1.3521427E-05  9.1470201E+06
+0        9   1.2307516E-08  3.2221094E-08  3.5501345E+03  3.5881664E+06  1.0756412E+06  4.6335872E-07
+0       10   1.7451579E+03  7.9351680E+04  9.3967706E-06  3.3961971E-03  5.2998250E-03  1.8567226E+06
+0       11   1.1256236E-05  3.0643661E-05  5.7465092E+03  4.3772885E+06  8.4431118E+05  4.2802678E-03
+0       12   1.0202976E+04  2.9174762E+03  1.3136068E-04  4.8482901E-02  5.1487493E-02  7.2506537E+06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    30
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0                                                  MAXIMUM  DISPLACEMENTS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   1.4901048E-15  6.0103053E-16  1.0001518E+00  2.3328469E-04  3.8283981E-06  4.5995581E-19
+0        2   1.0000000E+00  1.4269477E-01  5.1338180E-15  2.7745702E-18  1.7187259E-18  2.0370279E-04
+0        3   2.7432849E-17  6.2661452E-18  1.0443206E+00  5.3621828E-04  7.1866969E-05  7.1507340E-21
+0        4   3.0008419E-15  9.8582892E-16  1.1602329E+00  6.4662284E-04  4.1855477E-04  1.4097255E-18
+0        5   1.0000000E+00  2.9513620E-01  3.6650776E-14  2.9412514E-17  1.1296290E-17  4.6700778E-04
+0        6   2.3519617E-14  8.0139101E-15  1.2422127E+00  9.3981280E-04  3.9275354E-04  1.1886959E-17
+0        7   1.2926988E-13  2.1890951E-13  2.5957577E+00  7.6550210E-04  4.1291259E-03  2.6106166E-16
+0        8   1.0000000E+00  4.4423910E-01  1.6855536E-12  6.0009371E-16  1.9809202E-15  6.8086268E-04
+0        9   2.4376690E-13  2.2912342E-13  1.6983326E+00  1.3546928E-03  1.1323627E-03  2.7448388E-16
+0       10   1.2147045E-01  1.0423475E+00  5.2338598E-10  2.2046901E-13  5.7074579E-13  6.7240428E-05
+0       11   2.1128295E-10  3.2765685E-10  1.2166868E+00  1.5308225E-03  5.7414006E-04  4.6467255E-13
+0       12   1.0000000E+00  5.6427058E-01  8.4294791E-09  3.5118126E-12  9.1630349E-12  9.0695057E-04
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OQG1     WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR OQG1, TRL =
+                    101                 0              7488                 0                 0                 0                 1
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS OQG1    
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         624 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =         130 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =        9361 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OUG1     WRITTEN ON FORTRAN UNIT  12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR OUG1, TRL =
+                    101                 0              7488                 0                 0                 0                 4
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS OUG1    
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         624 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =         130 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =        9361 WORDS.)
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    31
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  4.193135E+02
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G      1.157569E-11  -8.203905E-11  -1.095118E+02  -5.217512E+05  -1.594038E+04   2.598885E-08
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    32
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  1.534839E+03
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -4.606373E+02  -8.925630E+00  -2.352613E-13  -6.081623E-10   2.964316E-09   2.137353E+06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    33
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  3.657347E+03
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -1.761790E-13  -6.145172E-14   7.759631E+02   1.509693E+06   3.629011E+05   1.680494E-10
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    34
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  8.033314E+03
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -3.009806E-11  -9.241333E-12  -1.078718E+03  -8.242685E+05  -2.013425E+06   3.931474E-08
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    35
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  1.592122E+04
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G      3.446617E+03  -7.356516E+01   3.456084E-11   5.548842E-08  -3.571975E-08  -6.123301E+06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    36
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  2.360058E+04
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G      1.886808E-11  -1.593746E-10  -1.343855E+03  -2.019976E+06   9.205644E+05  -8.597408E-08
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    37
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  5.342919E+04
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -1.166780E-08   1.044763E-08   2.010533E+03   1.757552E+06  -1.079057E+04   3.912107E-06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    38
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  6.492436E+04
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -8.719222E+03   4.307211E+02  -1.589532E-08  -7.289217E-06  -1.352143E-05   9.147020E+06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    39
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  7.341532E+04
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -1.230752E-08  -3.222109E-08   3.550135E+03   3.588166E+06  -1.075641E+06   4.633587E-07
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    40
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  1.122872E+05
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G     -1.745158E+03  -7.935168E+04  -9.396771E-06  -3.396197E-03  -5.299825E-03   1.856723E+06
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    41
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  1.649604E+05
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G      1.125624E-05  -3.064366E-05  -5.746509E+03  -4.377288E+06   8.443112E+05  -4.280268E-03
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    42
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+      EIGENVALUE =  2.058117E+05
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             3      G      1.020298E+04  -2.917476E+03   1.313607E-04   4.848290E-02   5.148749E-02  -7.250654E+06
+ *** USER INFORMATION MESSAGE 4110 (OUTPX2)
+                                 END-OF-DATA SIMULATION ON FORTRAN UNIT 12
+                                 (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
+                                       (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
+                                       (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
+1                                                                          FEBRUARY  22, 2023  MSC Nastran  3/11/18   PAGE    43
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     71
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     T      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+
