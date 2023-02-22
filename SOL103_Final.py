@@ -28,7 +28,7 @@ idToList = []
 
 n = int(input("Bitte gebe eine Beladungszustände mit 00, 25, 50 und 100% ein : "))
 if n == 00 :
-    with open("Ref_220425/masses_f000/data_masses.dat") as datFile:
+    with open("wing_data/Ref_220425/masses_f000/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -37,7 +37,7 @@ if n == 00 :
             iYy.append(v[3])
             firstMoment.append(v[4])
 if n == 25 :
-    with open("Ref_220425/masses_f025/data_masses.dat") as datFile:
+    with open("wing_data/Ref_220425/masses_f025/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -46,7 +46,7 @@ if n == 25 :
             iYy.append(v[3])
             firstMoment.append(v[4])
 elif n == 50 :
-    with open("Ref_220425/masses_f050/data_masses.dat") as datFile:
+    with open("wing_data/Ref_220425/masses_f050/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -55,7 +55,7 @@ elif n == 50 :
             iYy.append(v[3])
             firstMoment.append(v[4])
 elif n == 100 :
-    with open("Ref_220425/masses_f100/data_masses.dat") as datFile:
+    with open("wing_data/Ref_220425/masses_f100/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -65,7 +65,7 @@ elif n == 100 :
             firstMoment.append(v[4])
 
 # open node.dat file_Wing
-with open("Ref_220425/data_nodes.dat") as datFile:
+with open("wing_data/Ref_220425/data_nodes.dat") as datFile:
     nodeValueList = [data.split() for data in datFile]
     del nodeValueList[0] # delete line 0
     for v in nodeValueList:
@@ -77,7 +77,7 @@ with open("Ref_220425/data_nodes.dat") as datFile:
         xTelueList.append(v[6])
 
 # open elements.dat file_pbeam
-with open("Ref_220425/data_elements.dat") as datFile:
+with open("wing_data/Ref_220425/data_elements.dat") as datFile:
     elementValueList = [data.split() for data in datFile]
     del elementValueList[0]
     for v in elementValueList:
