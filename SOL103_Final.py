@@ -36,7 +36,7 @@ if n == 00 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
-if n == 25 :
+elif n == 25 :
     with open("wing_data/Ref_220425/masses_f025/data_masses.dat") as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
