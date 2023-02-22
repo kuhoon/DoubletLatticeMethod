@@ -19,8 +19,8 @@ symbol=LM_NO_SNMP=1 $(c:/msc.software/msc_nastran/20181/conf/nast20181.rcf[10])
 symbol=MKL_INTERFACE_LAYER=ILP64 $(c:/msc.software/msc_nastran/20181/conf/nast20181.rcf[1])
 symbol=SSSALTERDIR='c:/msc.software/msc_nastran/20181/msc20181/nast/sssalter' $(program default)
 symbol=TPLDIR='c:/msc.software/msc_nastran/20181/msc20181/nast/tpl' $(program default)
-SDIR='c:/scratch/sol145_dlm_050.T12196_54'
-DBS='c:/scratch/sol145_dlm_050.T12196_54'
+SDIR='c:/scratch/sol145_dlm_050.T2712_43'
+DBS='c:/scratch/sol145_dlm_050.T2712_43'
 SCR='yes'
 SMEM=100
 BPOOL=2044.5MB
@@ -50,9 +50,9 @@ FPE:         yes
 ----------------------------------------------------------------- 
 Current resource limits:
  Physical memory:                    16356 MB
- Physical memory available:           8164 MB
- Paging file size:                   30654 MB
- Paging file size available:          8565 MB
+ Physical memory available:           8260 MB
+ Paging file size:                   34930 MB
+ Paging file size available:         12865 MB
  Virtual memory:                 134217727 MB
  Virtual memory available:       134213509 MB
 ----------------------------------------------------------------- 
@@ -67,15 +67,15 @@ System configuration:
  Raw model ID:     15
  Config number:    15
  Physical memory:  16356 MB
- Virtual memory:   30654 MB
+ Virtual memory:   34930 MB
  Numeric format:   64-bit little-endian IEEE.
  Bytes per word:   8
  Disk block size:  512 bytes (64 words)
  Remote shell cmd: "c:/msc.software/msc_nastran/20181/msc20181/win64i8/mscrmtcmd.exe" (Windows non-CCS nodes, UNIX)
                    <ccs_cmd> (Windows CCS nodes)
 ----------------------------------------------------------------- 
-MSC Nastran started  Wed Feb 22 01:25:54 MZ 2023 
- 01:25:55  Beginning Analysis
+MSC Nastran started  Wed Feb 22 15:59:43 MZ 2023 
+ 15:59:44  Beginning Analysis
 SCA Kernel 20.0.520419 successfully initialized
 BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\libimalloc.dll" has been loaded.
 BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\mkl_core.dll" has been loaded.
@@ -83,9 +83,9 @@ BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\mkl_intel_t
 BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\mkl_rt.dll" has been loaded.
 BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\MSCblas.dll" has been loaded.
 
- 01:25:56  MSC Authorization Information - System Attributes (1004, 0)
- 01:25:56  -----------------------------------------------------------
-  Date:          Wed Feb 22 01:25:56 2023
+ 15:59:45  MSC Authorization Information - System Attributes (1004, 0)
+ 15:59:45  -----------------------------------------------------------
+  Date:          Wed Feb 22 15:59:45 2023
   MSC Id:        7085c2b524d8 (ethernet) (Intel)
   Hostname:      DEFIENT (user student_sla, display CROLLER)
   License files: 50005@license2.rz.rwth-aachen.de
@@ -103,40 +103,40 @@ BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20181\msc20181\win64i8\MSCblas.dll
   * * * * * * * * * * * * * * * * * * * *
   * * * * * * * * * * * * * * * * * * * *
 
- 01:25:56  MSC Authorization Information - Checkout Successful (1016, 0)
- 01:25:56  -------------------------------------------------------------
- 01:25:56  Acquired 13 licenses for Group MSCONE (MSC Nastran) from license server on host license2.rz.rwth-aachen.de
+ 15:59:45  MSC Authorization Information - Checkout Successful (1016, 0)
+ 15:59:45  -------------------------------------------------------------
+ 15:59:45  Acquired 13 licenses for Group MSCONE (MSC Nastran) from license server on host license2.rz.rwth-aachen.de
 
 
- 01:25:56  MSC Authorization Information - Checkout Successful (1016, 0)
- 01:25:56  -------------------------------------------------------------
- 01:25:56  Acquired 3 licenses for Group MSCONE (MSC Nastran Aero - Basic) from license server on host license2.rz.rwth-aachen.de
+ 15:59:45  MSC Authorization Information - Checkout Successful (1016, 0)
+ 15:59:45  -------------------------------------------------------------
+ 15:59:45  Acquired 3 licenses for Group MSCONE (MSC Nastran Aero - Basic) from license server on host license2.rz.rwth-aachen.de
 
 
 Beginning bulk data processing using the IFPStar component.
 For more information on IFPStar, please see KB article KB8019200
 on our support pages, at http://simcompanion.mscsoftware.com.
 
- 01:25:56  500 records read from JID file "c:/users/student_sla/desktop/k_kwon_aeroelastik/ma_final/referenz/sol145/dlm/sol145_dlm_050.bdf"
+ 15:59:45  500 records read from JID file "c:/users/student_sla/desktop/k_kwon_aeroelastik/ma_final/referenz/sol145/dlm/sol145_dlm_050.bdf"
 
 Processing of bulk data entries is complete.
 
- 01:25:57  Analysis started.
- 01:25:57  Geometry access/verification to CAD part initiated (if needed).
- 01:25:57  Geometry access/verification to CAD part successfully completed (if needed).
- 01:25:58  Finite element model generation started.
- 01:25:58  Finite element model generated 156 degrees of freedom.
- 01:25:58  Finite element model generation successfully completed.
- 01:25:58  Application of Loads and Boundary Conditions to the finite element model started.
- 01:25:58  Application of Loads and Boundary Conditions to the finite element model successfully completed.
- 01:25:58  Solution of the system equations for normal modes started.
- 01:25:58  Solution of the system equations for normal modes successfully completed.
- 01:27:10  22 records read from JID file "c:/users/student_sla/desktop/k_kwon_aeroelastik/ma_final/referenz/sol145/dlm/sol145_dlm_050.bdf"
- 01:27:10  NSEXIT: EXIT(0)
- 01:27:10  Analysis complete  0
-Real:       75.045 seconds ( 0:01:15.045)
-User:       69.437 seconds ( 0:01:09.437)
-Sys:         2.968 seconds ( 0:00:02.968)
+ 15:59:46  Analysis started.
+ 15:59:46  Geometry access/verification to CAD part initiated (if needed).
+ 15:59:46  Geometry access/verification to CAD part successfully completed (if needed).
+ 15:59:46  Finite element model generation started.
+ 15:59:47  Finite element model generated 156 degrees of freedom.
+ 15:59:47  Finite element model generation successfully completed.
+ 15:59:47  Application of Loads and Boundary Conditions to the finite element model started.
+ 15:59:47  Application of Loads and Boundary Conditions to the finite element model successfully completed.
+ 15:59:47  Solution of the system equations for normal modes started.
+ 15:59:47  Solution of the system equations for normal modes successfully completed.
+ 16:00:55  22 records read from JID file "c:/users/student_sla/desktop/k_kwon_aeroelastik/ma_final/referenz/sol145/dlm/sol145_dlm_050.bdf"
+ 16:00:55  NSEXIT: EXIT(0)
+ 16:00:55  Analysis complete  0
+Real:       70.991 seconds ( 0:01:10.991)
+User:       68.140 seconds ( 0:01:08.140)
+Sys:         2.718 seconds ( 0:00:02.718)
  ==================================================
  OS:              6.2
  OEM ID:         9
@@ -157,4 +157,4 @@ Sys:         2.968 seconds ( 0:00:02.968)
  Detailed performance information can be found in the 
  "MSC Nastran High Performance Computing User's Guide"
  =====================================================
-MSC Nastran finished Wed Feb 22 01:27:10 MZ 2023 
+MSC Nastran finished Wed Feb 22 16:00:55 MZ 2023 

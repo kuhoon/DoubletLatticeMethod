@@ -4,15 +4,19 @@ import numpy as np
 from math import *
 # import math
 
-nodesFileName = "wing_data/Ref_220425/data_nodes.dat"
-elementsFileName = "wing_data/Ref_220425/data_elements.dat"
-sectionFileName = "wing_data/Ref_220425/data_planform.dat"
-machFileName = "datFiles_numbering/6_machNum.dat"
-rrfFileName_00 = "datFiles_numbering/7_00_redRF_636.dat"
-rrfFileName_25 = "datFiles_numbering/7_25_redRF_636.dat"
-rrfFileName_50 = "datFiles_numbering/7_50_redRF_636.dat"
-rrfFileName_100 = "datFiles_numbering/7_100_redRF_636.dat"
-v3FileName = "datfiles_numbering/8_v3_636.dat"
+nodesFileName = "Wing_data_MA_Beechraft1900D_230218/wing_data/_general/data_nodes.dat"
+elementsFileName = "Wing_data_MA_Beechraft1900D_230218/wing_data/_general/data_elements.dat"
+sectionFileName = "Wing_data_MA_Beechraft1900D_230218/wing_data/_general/data_planform.dat"
+Mass000 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_000/data_masses.dat"
+Mass025 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_025/data_masses.dat"
+Mass050 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_050/data_masses.dat"
+Mass100 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_100/data_masses.dat"
+rrfFileName_00 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_000/000_redRF.dat"
+rrfFileName_25 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_025/025_redRF.dat"
+rrfFileName_50 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_050/050_redRF.dat"
+rrfFileName_100 = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/fuel_100/100_redRF.dat"
+v3FileName = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/v3_636.dat"
+machFileName = "Wing_data_MA_Beechraft1900D_230218/wing_data/REF/machNum.dat"
 #v_min = stall speed
 #v_max = dive speed
 #f_min  = smaller than first bending mode freq
@@ -63,7 +67,7 @@ mat = model.add_mat1(1, E, G, nu, rho)
 
 n = int(input("Bitte gebe eine Beladungszustände mit 00, 25, 50 und 100% ein : "))
 if n == 00 :
-    with open("wing_data/Ref_220425/masses_f000/data_masses.dat") as datFile:
+    with open(Mass000) as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -73,7 +77,7 @@ if n == 00 :
             firstMoment.append(v[4])
 
 if n == 25 :
-    with open("wing_data/Ref_220425/masses_f025/data_masses.dat") as datFile:
+    with open(Mass025) as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -83,7 +87,7 @@ if n == 25 :
             firstMoment.append(v[4])
 
 elif n == 50 :
-    with open("wing_data/Ref_220425/masses_f050/data_masses.dat") as datFile:
+    with open(Mass050) as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -93,7 +97,7 @@ elif n == 50 :
             firstMoment.append(v[4])
 
 elif n == 100 :
-    with open("wing_data/Ref_220425/masses_f100/data_masses.dat") as datFile:
+    with open(Mass100) as datFile:
         lumpValueList = [data.split() for data in datFile]
         del lumpValueList[0]
         for v in lumpValueList:
@@ -103,7 +107,7 @@ elif n == 100 :
             firstMoment.append(v[4])
 
 # open node.dat file_Wing
-with open("wing_data/Ref_220425/data_nodes.dat") as datFile:
+with open(nodesFileName) as datFile:
     nodeValueList = [data.split() for data in datFile]
     del nodeValueList[0] # delete line 0
     for v in nodeValueList:
@@ -113,7 +117,7 @@ with open("wing_data/Ref_220425/data_nodes.dat") as datFile:
         zValueList.append(v[3])
 
 # open elements.dat file_pbeam
-with open("wing_data/Ref_220425/data_elements.dat") as datFile:
+with open(elementsFileName) as datFile:
     elementValueList = [data.split() for data in datFile]
     del elementValueList[0]
     for v in elementValueList:
@@ -196,8 +200,7 @@ cc = CaseControlDeck([
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
     'ECHO = BOTH',
-    'STRESS(SORT1,REAL)=ALL',
-    'FLUTTER = ALL, RESIDUALS'
+    'STRESS(SORT1,REAL)=ALL'
 ])
 model.case_control_deck = cc
 model.validate()
