@@ -71,11 +71,6 @@ if n == 00 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
-    # open 7_redRF.dat file
-    with open(rrfFileName_00) as datFile:
-        tempList = [data.split() for data in datFile]
-        for t in tempList:
-            rrfValueList.append(float(t[0]))
 
 if n == 25 :
     with open("Ref_220425/masses_f025/data_masses.dat") as datFile:
@@ -86,11 +81,6 @@ if n == 25 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
-    # open 7_redRF.dat file
-    with open(rrfFileName_25) as datFile:
-        tempList = [data.split() for data in datFile]
-        for t in tempList:
-            rrfValueList.append(float(t[0]))
 
 elif n == 50 :
     with open("Ref_220425/masses_f050/data_masses.dat") as datFile:
@@ -101,11 +91,6 @@ elif n == 50 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
-    # open 7_redRF.dat file
-    with open(rrfFileName_50) as datFile:
-        tempList = [data.split() for data in datFile]
-        for t in tempList:
-            rrfValueList.append(float(t[0]))
 
 elif n == 100 :
     with open("Ref_220425/masses_f100/data_masses.dat") as datFile:
@@ -116,11 +101,6 @@ elif n == 100 :
             mass.append(v[2])
             iYy.append(v[3])
             firstMoment.append(v[4])
-    # open 7_redRF.dat file
-    with open(rrfFileName_100) as datFile:
-        tempList = [data.split() for data in datFile]
-        for t in tempList:
-            rrfValueList.append(float(t[0]))
 
 # open node.dat file_Wing
 with open("Ref_220425/data_nodes.dat") as datFile:
@@ -163,6 +143,31 @@ with open(machFileName) as datFile:
     for t in tempList:
         machValueList.append(float(t[0]))
 
+# open 7_redRF.dat file
+if n == 00:
+    with open(rrfFileName_00) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
+if n == 25:
+    with open(rrfFileName_25) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
+if n == 50:
+    with open(rrfFileName_50) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
+if n == 100:
+    with open(rrfFileName_100) as datFile:
+        tempList = [data.split() for data in datFile]
+        for t in tempList:
+            rrfValueList.append(float(t[0]))
+
 # open 8_v3.dat file
 with open(v3FileName) as datFile:
     tempList = [data.split() for data in datFile]
@@ -191,7 +196,8 @@ cc = CaseControlDeck([
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
     'ECHO = BOTH',
-    'STRESS(SORT1,REAL)=ALL'
+    'STRESS(SORT1,REAL)=ALL',
+    'FLUTTER = ALL, RESIDUALS'
 ])
 model.case_control_deck = cc
 model.validate()
@@ -318,10 +324,18 @@ model.add_flfact(3, v3ValueList)
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3)) #interpolation 'L'inear
 
 # write bdf file
-# model.validate()
-bdf145_filename_out = os.path.join('MA/sol145_addDLM_f000_636.bdf')
-# bdf145_filename_out = os.path.join('sol145_addDLM_f000_636.bdf')
-# bdf145_filename_out = os.path.join('sol145_addDLM_f000_636.bdf')
+model.case_control_deck = cc
+model.validate()
+
+if n == 00 :
+    bdf145_filename_out = os.path.join('MA_final/referenz/sol145/dlm/sol145_dlm_000.bdf')
+if n == 25 :
+    bdf145_filename_out = os.path.join('MA_final/referenz/sol145/dlm/sol145_dlm_025.bdf')
+if n == 50 :
+    bdf145_filename_out = os.path.join('MA_final/referenz/sol145/dlm/sol145_dlm_050.bdf')
+if n == 100 :
+    bdf145_filename_out = os.path.join('MA_final/referenz/sol145/dlm/sol145_dlm_100.bdf')
+
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
