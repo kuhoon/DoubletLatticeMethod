@@ -8,7 +8,7 @@ pages = join_flutter_pages(res.flutter)
 df = flutter_pages_to_df(pages)
 get_critical_roots(df)
 
-p = plot_vf_vg(df,modes=(1, 3, 4, 6, 7, 8, 9, 12)) # 4, 7, 12how many modes want to print, if you want to all, del modes=()
+p = plot_vf_vg(df,modes=[1, 3, 4, 6, 7, 8, 9, 12]) # 4, 7, 12how many modes want to print, if you want to all, del modes=[], [1] only one mode available
 plt.title('FLUTTER ANALYSIS : Ref2020_Strip_DP4_M1', pad=160)
 plt.xlabel('Equivalent Airspeed (m/s)')
 plt.ylabel('                                                      DAMPING                       FREQUENCY(Hz)')

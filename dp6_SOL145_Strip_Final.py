@@ -197,7 +197,6 @@ model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0
 model.add_param('Aunit', [1.0])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
-model.add_param('WTMASS', [1.])
 
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
@@ -298,7 +297,7 @@ model.add_card(['SPLINE7',1, 105001, 1, None, 1, 1.0, 1.0, None, None, None, Non
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13 #cruise_level_air_density
 model.add_flfact(1, [float(cruiseAD/seaAD)]) # density set
-model.add_flfact(2, [float(0.0)]) # FLFACT entry specifying Mach numbers to be used in flutter analysis. bis zum oberen Geschwindigkeitslimit von 150% der Geschwindigkeit v_D durch, das heißt maximal 1.5 * 159.5 m/s = 239.3 m/s
+model.add_flfact(2, [float(0.45)]) # FLFACT entry specifying Mach numbers to be used in flutter analysis. bis zum oberen Geschwindigkeitslimit von 150% der Geschwindigkeit v_D durch, das heißt maximal 1.5 * 159.5 m/s = 239.3 m/s
 model.add_flfact(3, v3ValueList) # for the “PKx” methods, the velocities FLFACT entry is specified in this field.  (Integer > 0)
 
 # insert model.add_flutter
