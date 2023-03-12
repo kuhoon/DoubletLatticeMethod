@@ -159,14 +159,14 @@ model.add_param('WTMASS', [1.])
 
 if n == 00 :
     if nn == 1: # Entkopplung
-        bdf_filename_out = os.path.join('MA_final/referenz/sol103/ungekoppelt/sol103_000_uncoupled.bdf')
+        bdf_filename_out = os.path.join('MA_final/sol103_000_uncoupled.bdf')
     if nn == 2: # Kopplung
-        bdf_filename_out = os.path.join('MA_final/referenz/sol103/kopplung/sol103_000_coupled.bdf')
+        bdf_filename_out = os.path.join('MA_final/sol103_000_coupled.bdf')
 if n == 25 :
     if nn == 1: # Entkopplung
-        bdf_filename_out = os.path.join('MA_final/referenz/sol103/ungekoppelt/sol103_025_uncoupled.bdf')
+        bdf_filename_out = os.path.join('MA_final/sol103_025_uncoupled.bdf')
     if nn == 2: # Kopplung
-        bdf_filename_out = os.path.join('MA_final/referenz/sol103/kopplung/sol103_025_coupled.bdf')
+        bdf_filename_out = os.path.join('MA_final/sol103_025_coupled.bdf')
 if n == 50 :
     if nn == 1: # Entkopplung
         bdf_filename_out = os.path.join('MA_final/referenz/sol103/ungekoppelt/sol103_050_uncoupled.bdf')
